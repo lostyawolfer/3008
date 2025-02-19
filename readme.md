@@ -6,4 +6,4 @@ but, for now, you can download this repo as a datapack and put it into your worl
 
 
 ## works on servers!
-don't hesitate to invite your friends to play together while waiting for an official server.
+don't hesitate to invite your friends to play together while waiting for an official server!
