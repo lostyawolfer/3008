@@ -1,0 +1,1 @@
+execute in 3008:infinite_ikea run function 3008:real_tick

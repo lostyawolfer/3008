@@ -1,0 +1,1 @@
+scoreboard players add GLOBAL server.items_spawned 1

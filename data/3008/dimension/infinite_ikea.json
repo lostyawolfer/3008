@@ -1,0 +1,24 @@
+{
+    "type": "3008:infinite_ikea",
+    "generator": {
+        "type": "minecraft:flat",
+        "settings": {
+            "biome": "3008:infinite_ikea",
+            "layers": [
+                {
+                    "height": 16,
+                    "block": "minecraft:light_gray_concrete"
+                },
+                {
+                    "height": 2010,
+                    "block": "minecraft:air"
+                },
+                {
+                    "height": 1,
+                    "block": "minecraft:light_gray_concrete"
+                }
+            ],
+            "structure_overrides": []
+        }
+    }
+}
