@@ -1,0 +1,325 @@
+{
+  "employee_sound": {
+	"sounds": [
+      {
+        "name": "3008:employee_sounds/1",
+        "attenuation_distance": 12
+      },
+      {
+        "name": "3008:employee_sounds/2",
+        "attenuation_distance": 12
+      },
+      {
+        "name": "3008:employee_sounds/3",
+        "attenuation_distance": 12
+      }
+    ]
+  },
+  "daytime_switch.light_on": {
+	"sounds": [
+      {
+        "name": "3008:daytime_switch/light_on"
+      }
+    ]
+  },
+  "daytime_switch.light_off": {
+	"sounds": [
+      {
+        "name": "3008:daytime_switch/light_off"
+      }
+    ]
+  },
+  "daytime_switch.light_off_blood": {
+	"sounds": [
+      {
+        "name": "3008:daytime_switch/light_off_blood"
+      }
+    ]
+  },
+
+
+  "loading": {
+	"sounds": [
+      {
+        "name": "3008:loading",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop.day_monday": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop/day_monday",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop.day_tuesday": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop/day_tuesday",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop.day_wednesday": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop/day_wednesday",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop.day_thursday": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop/day_thursday",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop.day_friday": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop/day_friday",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop.day_saturday": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop/day_saturday",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop.day_sunday": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop/day_sunday",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop.fog": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop/fog",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop.blackout": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop/blackout",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop.night": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop/night",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop.blood_night": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop/blood_night",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop.low_health_day": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop/low_health_day",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop.low_health_night": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop/low_health_night",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop.severe_acrophobia": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop/severe_acrophobia",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop.apeirophobic_summit": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop/apeirophobic_summit",
+        "stream": true
+      }
+    ]
+  },
+
+
+
+
+  "daytime_loop_fade_in.day_monday": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop_fade_in/day_monday",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop_fade_in.day_tuesday": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop_fade_in/day_tuesday",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop_fade_in.day_wednesday": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop_fade_in/day_wednesday",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop_fade_in.day_thursday": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop_fade_in/day_thursday",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop_fade_in.day_friday": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop_fade_in/day_friday",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop_fade_in.day_saturday": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop_fade_in/day_saturday",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop_fade_in.day_sunday": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop_fade_in/day_sunday",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop_fade_in.fog": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop_fade_in/fog",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop_fade_in.blackout": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop_fade_in/blackout",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop_fade_in.night": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop_fade_in/night",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop_fade_in.blood_night": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop_fade_in/blood_night",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop_fade_in.low_health_day": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop_fade_in/low_health_day",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop_fade_in.low_health_night": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop_fade_in/low_health_night",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop_fade_in.severe_acrophobia": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop_fade_in/severe_acrophobia",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop_fade_in.apeirophobic_summit": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop_fade_in/apeirophobic_summit",
+        "stream": true
+      }
+    ]
+  },
+
+
+
+
+
+  "death": {
+	"sounds": [
+      {
+        "name": "3008:death",
+        "preload": true
+      }
+    ]
+  },
+
+
+
+  "fall_loop": {
+	"sounds": [
+      {
+        "name": "3008:fall_loop",
+        "stream": true
+      }
+    ]
+  },
+  "fall_end": {
+	"sounds": [
+      {
+        "name": "3008:fall_end",
+        "preload": true
+      }
+    ]
+  }
+}
