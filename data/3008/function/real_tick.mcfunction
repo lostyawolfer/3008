@@ -642,7 +642,9 @@ execute if score daytime server matches 1 run effect give @e[tag=game] strength 
 execute if score daytime server matches 1 run weather clear
 
 execute if score daytime server matches 1.. run effect give @a night_vision infinite 0 true
+execute if score daytime server matches 1.. as @a at @s run fill ~-20 ~-10 ~-20 ~20 ~10 ~20 daylight_detector[inverted=false, power=0] replace daylight_detector[inverted=true]
 execute unless score daytime server matches 1.. run effect clear @a night_vision
+execute unless score daytime server matches 1.. as @a at @s run fill ~-20 ~-10 ~-20 ~20 ~10 ~20 daylight_detector[inverted=true, power=15] replace daylight_detector[inverted=false]
 
 execute if score daytime server matches 0 run scoreboard players set blood server 0
 execute if score daytime server matches 0 run scoreboard players set zombie_state server 1
