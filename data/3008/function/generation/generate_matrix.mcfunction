@@ -27,7 +27,7 @@ execute unless entity @e[type=armor_stand, tag=generating3] run summon armor_sta
 
 execute if score temp_gen_delay server matches 300.. run title @a actionbar [{"text": "", "color": "aqua"}, "don't worry if it freezes for like 3-10 seconds. if it's longer tho, kill the game's/server's process and try again"]
 execute if score temp_gen_delay server matches 1.. run title @a subtitle [{"text": "", "color": "#7db9c4"}, "letting your server stabilize before starting (", {"score": {"name": "temp_gen_delay", "objective": "server"}}, ")"]
-execute if score temp_gen_delay server matches 1.. run title @a title "plots (3/4)"
+execute if score temp_gen_delay server matches 1.. run title @a title "generating plots"
 execute if score temp_gen_delay server matches 10 run effect clear @s
 execute if score temp_gen_delay server matches 10 run stopsound @a
 execute if score temp_gen_delay server matches 10 as @a at @s run playsound 3008:loading master @s ~ ~ ~ 1 1 1
@@ -37,7 +37,7 @@ execute if score temp_gen_delay2 server matches 1.. run return run scoreboard pl
 execute if score temp-1 server matches 1.. run return 1
 
 tellraw @a[scores={logging=1}] ["! log: generate_matrix: temp-10 is now at ", {"score": {"name": "temp-10", "objective": "server"}}]
-title @a title "plots (3/4)"
+title @a title "generating plots"
 
 execute if score temp-10 server matches 1.. run scoreboard players remove temp-10 server 1
 execute if score temp-10 server matches 1.. run tellraw @a[scores={logging=1}] "! log: continuing generate_matrix function"

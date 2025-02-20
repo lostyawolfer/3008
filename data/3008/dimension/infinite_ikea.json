@@ -3,14 +3,10 @@
     "generator": {
         "type": "minecraft:flat",
         "settings": {
-            "biome": "3008:infinite_ikea",
+            "biome": "3008:shattered_reality",
             "layers": [
                 {
-                    "height": 16,
-                    "block": "minecraft:light_gray_concrete"
-                },
-                {
-                    "height": 2010,
+                    "height": 2026,
                     "block": "minecraft:air"
                 },
                 {

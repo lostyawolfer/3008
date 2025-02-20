@@ -4,14 +4,14 @@ stopsound @a ambient
 effect give @a night_vision infinite 0 true
 
 execute in 3008:infinite_ikea run tp @a 15 20 15 -45 45
-
+gamerule commandModificationBlockLimit 2147483647
 
 
 title @a subtitle [{"text": "", "color": "gray"}, "starting: forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
 
 stopsound @a
 title @a times 0 999999999 999999999
-title @a title "preparation (1/4)"
+title @a title "forcing chunk generation"
 
 scoreboard players add temp_gen_stage_before_gen server 0
 title @a subtitle [{"text": "", "color": "gray"}, "starting: forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}]
@@ -328,18 +328,230 @@ execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run
 
 
 scoreboard players set temp_gen_stage_before_gen server 0
+title @a title "setting biome"
+
+
+
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run tp @s -1 0 -1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~ 816 ~
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~16 816 ~16
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~32 816 ~32
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~48 816 ~48
+
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run tp @s ~ ~ ~64
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~ 816 ~
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~16 816 ~16
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~32 816 ~32
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~48 816 ~48
+
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run tp @s ~ ~ ~64
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~ 816 ~
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~16 816 ~16
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~32 816 ~32
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~48 816 ~48
+
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run tp @s ~ ~ ~64
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~ 816 ~
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~16 816 ~16
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~32 816 ~32
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~48 816 ~48
+
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run tp @s ~ ~ ~64
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~ 816 ~
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~16 816 ~16
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~32 816 ~32
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~48 816 ~48
+
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run tp @s ~ ~ ~64
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~ 816 ~
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~16 816 ~16
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~32 816 ~32
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~48 816 ~48
+
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run tp @s ~ ~ ~64
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~ 816 ~
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~16 816 ~16
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~32 816 ~32
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~48 816 ~48
+
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run tp @s ~ ~ ~64
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~ 816 ~
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~16 816 ~16
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~32 816 ~32
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~48 816 ~48
+
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run tp @s ~ ~ ~64
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~ 816 ~
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~16 816 ~16
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~32 816 ~32
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~48 816 ~48
+
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run tp @s ~ ~ ~64
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~ 816 ~
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~16 816 ~16
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~32 816 ~32
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~48 816 ~48
+
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run tp @s ~ ~ ~64
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~ 816 ~
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~16 816 ~16
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~32 816 ~32
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~48 816 ~48
+
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run tp @s ~ ~ ~64
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~ 816 ~
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~16 816 ~16
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~32 816 ~32
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~48 816 ~48
+
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run tp @s ~ ~ ~64
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~ 816 ~
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~16 816 ~16
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~32 816 ~32
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~48 816 ~48
+
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run tp @s ~ ~ ~64
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~ 816 ~
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~16 816 ~16
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~32 816 ~32
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload add 0 ~48 816 ~48
+
+
+
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "setting biome"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run fillbiome -5 -16 -5 810 810 810 3008:infinite_ikea
+
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "unloading"]
+execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run forceload remove all
+
+
+scoreboard players set temp_gen_stage_before_gen server 0
+
+
+
 
 execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run scoreboard players add temp_gen_stage_before_gen server 1
 execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run title @a subtitle [{"text": "", "color": "gray"}, "killed armor stand ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}]
 execute in 3008:infinite_ikea as @e[type=armor_stand, tag=generating0] at @s run kill @s
 
-title @a title "worldborder (2/4)"
+title @a title "worldborder"
 
 scoreboard players set temp_gen_stage_before_gen server 0
 title @a subtitle [{"text": "", "color": "gray"}, "thinking ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/4"]
 
 forceload remove all
-gamerule commandModificationBlockLimit 9999999
 
 scoreboard players add temp_gen_stage_before_gen server 1
 title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/4"]

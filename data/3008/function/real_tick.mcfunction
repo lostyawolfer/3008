@@ -1,21 +1,13 @@
 execute if score temp_gen_before_starting_current server matches 0.. as @a[limit=1] run return run function 3008:generation/final_generate
 execute unless score generated server matches 1.. unless score temp_gen_before_starting_current server matches 0.. in 3008:infinite_ikea run worldborder warning distance 30000000
-execute unless score generated server matches 1.. unless score temp_gen_before_starting_current server matches 0.. in 3008:infinite_ikea run tp @a[nbt=!{Dimension:"3008:infinite_ikea"}] 0 0 0
-execute unless score generated server matches 1.. unless score temp_gen_before_starting_current server matches 0.. in 3008:infinite_ikea run title @a actionbar "Whenever you feel ready, go to coords 0, 0, 0 and do /function 3008:generation/final_generate"
+execute unless score generated server matches 1.. unless score temp_gen_before_starting_current server matches 0.. in 3008:infinite_ikea run tp @a[nbt=!{Dimension:"3008:infinite_ikea"}] -1 0 -1
+execute unless score generated server matches 1.. unless score temp_gen_before_starting_current server matches 0.. in 3008:infinite_ikea run title @a actionbar "Whenever you feel ready, do /function 3008:generation/final_generate"
+execute unless score generated server matches 1.. unless score temp_gen_before_starting_current server matches 0.. in 3008:infinite_ikea run setblock -1 -1 -1 light_gray_concrete
 execute unless score generated server matches 1.. run scoreboard players reset @a stat.playtime
 execute unless score generated server matches 1.. run return -1
 
 
-execute if score temp_gen_stage_percent server matches ..10 in 3008:infinite_ikea run tp @a 15 12 15 -45 20
-execute if score temp_gen_stage_percent server matches 11..20 in 3008:infinite_ikea run tp @a 100 12 100 -45 20
-execute if score temp_gen_stage_percent server matches 21..30 in 3008:infinite_ikea run tp @a 200 12 200 -45 20
-execute if score temp_gen_stage_percent server matches 31..40 in 3008:infinite_ikea run tp @a 300 12 300 -45 20
-execute if score temp_gen_stage_percent server matches 41..50 in 3008:infinite_ikea run tp @a 400 12 400 -45 20
-execute if score temp_gen_stage_percent server matches 51..60 in 3008:infinite_ikea run tp @a 450 12 450 -45 20
-execute if score temp_gen_stage_percent server matches 61..70 in 3008:infinite_ikea run tp @a 500 12 500 -45 20
-execute if score temp_gen_stage_percent server matches 71..80 in 3008:infinite_ikea run tp @a 550 12 550 -45 20
-execute if score temp_gen_stage_percent server matches 81..90 in 3008:infinite_ikea run tp @a 650 12 650 -45 20
-execute if score temp_gen_stage_percent server matches 91..100 in 3008:infinite_ikea run tp @a 750 12 750 -45 20
+execute if score temp_gen_stage_percent server matches 1..100 in 3008:infinite_ikea run tp @a 15 12 15 -45 20
 execute if score temp_gen_stage_percent server matches 15.. run effect clear @a
 
 execute if score temp-1 server matches 0.. run title @a times 0 999999999 999999999
@@ -587,20 +579,12 @@ execute as @a at @s as @e[tag=game, distance=..15, predicate=3008:chasing] if sc
 execute if score daytime server matches 2 unless score daytime_save server matches 2 as @a run effect clear @e[tag=game]
 execute if score daytime server matches 2 unless score daytime_save server matches 2 as @a run effect clear @a resistance
 execute if score daytime server matches 2 unless score daytime_save server matches 2 as @a run stopsound @s master
-execute if score daytime server matches 2 unless score daytime_save server matches 2 run scoreboard players set @a music.current_song 8
 execute if score daytime server matches 2 unless score daytime_save server matches 2 run playsound 3008:daytime_switch.light_on master @a[tag=!dead] 0 0 0 1 1 1
 execute if score daytime server matches 2 unless score daytime_save server matches 2 run stopsound @a * 3008:employee_sound
 
 execute if score daytime server matches 1 unless score daytime_save server matches 1 as @a run effect clear @e[tag=game]
 execute if score daytime server matches 1 unless score daytime_save server matches 1 as @a run effect clear @a resistance
 execute if score daytime server matches 1 unless score daytime_save server matches 1 as @a run stopsound @s master
-execute if score daytime server matches 1 unless score daytime_save server matches 1 if score time.weekday server matches 0 run scoreboard players set @a[tag=!dead] music.current_song 7
-execute if score daytime server matches 1 unless score daytime_save server matches 1 if score time.weekday server matches 1 run scoreboard players set @a[tag=!dead] music.current_song 1
-execute if score daytime server matches 1 unless score daytime_save server matches 1 if score time.weekday server matches 2 run scoreboard players set @a[tag=!dead] music.current_song 2
-execute if score daytime server matches 1 unless score daytime_save server matches 1 if score time.weekday server matches 3 run scoreboard players set @a[tag=!dead] music.current_song 3
-execute if score daytime server matches 1 unless score daytime_save server matches 1 if score time.weekday server matches 4 run scoreboard players set @a[tag=!dead] music.current_song 4
-execute if score daytime server matches 1 unless score daytime_save server matches 1 if score time.weekday server matches 5 run scoreboard players set @a[tag=!dead] music.current_song 5
-execute if score daytime server matches 1 unless score daytime_save server matches 1 if score time.weekday server matches 6 run scoreboard players set @a[tag=!dead] music.current_song 6
 execute if score daytime server matches 1 unless score daytime_save server matches 1 run playsound 3008:daytime_switch.light_on master @a[tag=!dead] 0 0 0 1 1 1
 execute if score daytime server matches 1 unless score daytime_save server matches 1 run stopsound @a * 3008:employee_sound
 
@@ -613,19 +597,16 @@ execute if score daytime server matches 0 unless score daytime_save server match
 execute if score daytime server matches -1 unless score daytime_save server matches -1 as @a run effect clear @e[tag=game]
 execute if score daytime server matches -1 unless score daytime_save server matches -1 as @a run effect clear @a resistance
 execute if score daytime server matches -1 unless score daytime_save server matches -1 as @a run stopsound @s master
-execute if score daytime server matches -1 unless score daytime_save server matches -1 run scoreboard players set @a music.current_song 9
 execute if score daytime server matches -1 unless score daytime_save server matches -1 run playsound 3008:daytime_switch.light_off master @a[tag=!dead] 0 0 0 1 1 1
 
 execute if score daytime server matches -2 unless score daytime_save server matches -2 as @a run effect clear @e[tag=game]
 execute if score daytime server matches -2 unless score daytime_save server matches -2 as @a run effect clear @a resistance
 execute if score daytime server matches -2 unless score daytime_save server matches -2 as @a run stopsound @s master
-execute if score daytime server matches -2 unless score daytime_save server matches -2 run scoreboard players set @a music.current_song 10
 execute if score daytime server matches -2 unless score daytime_save server matches -2 run playsound 3008:daytime_switch.light_off_blood master @a[tag=!dead] 0 0 0 1 1 1
 
 execute if score daytime server matches -3 unless score daytime_save server matches -3 as @a run effect clear @e[tag=game]
 execute if score daytime server matches -3 unless score daytime_save server matches -3 as @a run effect clear @a resistance
 execute if score daytime server matches -3 unless score daytime_save server matches -3 as @a run stopsound @s master
-execute if score daytime server matches -3 unless score daytime_save server matches -3 run scoreboard players set @a music.current_song 8
 execute if score daytime server matches -3 unless score daytime_save server matches -3 run playsound 3008:daytime_switch.light_off master @a[tag=!dead] 0 0 0 1 1 1
 
 execute unless score daytime_save server = daytime server run scoreboard players operation daytime_save server = daytime server
@@ -670,10 +651,9 @@ execute if score daytime server matches -3 run weather rain
 execute if score daytime server matches -3 as @a at @s run particle large_smoke ~ ~ ~ 40 40 40 .01 40 force @s
 
 
-execute as @a[tag=!dead] run function 3008:music/set_music
 execute as @a[scores={stat.leave=1..}] run function 3008:misc/join_routine
+execute as @a[tag=!dead] at @s run function 3008:music/set_music
 execute as @a at @s run function 3008:music/play_music
-
 
 execute as @a[scores={stat.last_fall_distance.trigger=1..}] run scoreboard players operation @s stat.last_fall_distance = @s stat.last_fall_distance.trigger
 execute as @a[scores={stat.last_fall_distance.trigger=1..}] run scoreboard players reset @s stat.last_fall_distance.trigger
