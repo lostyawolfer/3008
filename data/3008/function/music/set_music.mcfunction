@@ -3,8 +3,8 @@ execute if score @s health matches 1..30 unless score daytime server matches 1..
 execute if score @s health matches 1..30 run return 1
 
 
-execute if predicate 3008:in_shattered_reality run scoreboard players set @s music.current_song 15
-execute if predicate 3008:in_shattered_reality run return 2
+execute unless predicate 3008:in_ikea run scoreboard players set @s music.current_song 15
+execute unless predicate 3008:in_ikea run return 2
 
 
 execute if score @s stat.height matches 500..1989 run scoreboard players set @s music.current_song 13
