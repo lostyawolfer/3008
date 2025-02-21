@@ -3,15 +3,15 @@
 	"sounds": [
       {
         "name": "3008:employee_sounds/1",
-        "attenuation_distance": 12
+        "attenuation_distance": 24
       },
       {
         "name": "3008:employee_sounds/2",
-        "attenuation_distance": 12
+        "attenuation_distance": 24
       },
       {
         "name": "3008:employee_sounds/3",
-        "attenuation_distance": 12
+        "attenuation_distance": 24
       }
     ]
   },
@@ -42,6 +42,14 @@
 	"sounds": [
       {
         "name": "3008:loading",
+        "stream": true
+      }
+    ]
+  },
+  "daytime_loop.shattered_reality": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop/shattered_reality",
         "stream": true
       }
     ]
@@ -169,7 +177,14 @@
 
 
 
-
+  "daytime_loop_fade_in.shattered_reality": {
+	"sounds": [
+      {
+        "name": "3008:daytime_loop_fade_in/shattered_reality",
+        "stream": true
+      }
+    ]
+  },
   "daytime_loop_fade_in.day_monday": {
 	"sounds": [
       {
