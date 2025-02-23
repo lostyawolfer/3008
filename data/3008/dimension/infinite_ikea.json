@@ -11,7 +11,7 @@
                 },
                 {
                     "height": 1,
-                    "block": "minecraft:light_gray_concrete"
+                    "block": "minecraft:gray_concrete"
                 }
             ],
             "structure_overrides": []

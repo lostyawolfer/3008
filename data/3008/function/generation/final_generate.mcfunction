@@ -1,16 +1,17 @@
 item replace entity @a armor.head with paper[minecraft:equippable={slot: "head", equip_sound: {sound_id: ""}, camera_overlay: "3008:vignettes/loading"}, minecraft:enchantments={levels:{binding_curse:1}, show_in_tooltip: false}, minecraft:enchantment_glint_override=false, minecraft:custom_data={game:0}, minecraft:custom_name='{"text":""}', hide_tooltip={}]
 gamemode spectator @a
-stopsound @a ambient
+stopsound @a
 setblock -1 -1 -1 air
+execute in 3008:infinite_ikea run tp @a 15 20 15 -45 45
 effect give @a night_vision infinite 0 true
 
-execute in 3008:infinite_ikea run tp @a 15 20 15 -45 45
 gamerule commandModificationBlockLimit 2147483647
 
 
 title @a subtitle [{"text": "", "color": "gray"}, "starting: forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/56"]
 
 stopsound @a
+playsound 3008:loading master @a ~ ~ ~ 1 1 1
 title @a times 0 999999999 999999999
 title @a title "forcing chunk generation"
 
@@ -663,9 +664,9 @@ scoreboard players add temp_gen_stage_before_gen server 1
 title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/4"]
 forceload add -1 -1 816 -1
 title @a subtitle [{"text": "", "color": "gray"}, "filling ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/4"]
-fill -1 0 -1 800 2010 -1 air
+fill -1 0 -1 800 2010 -1 gray_concrete
 title @a subtitle [{"text": "", "color": "gray"}, "making sure ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/4"]
-fill -1 0 -1 800 2010 -1 air
+fill -1 0 -1 800 2010 -1 gray_concrete
 title @a subtitle [{"text": "", "color": "gray"}, "unloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/4"]
 forceload remove all
 
@@ -673,9 +674,9 @@ scoreboard players add temp_gen_stage_before_gen server 1
 title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/4"]
 forceload add -1 -1 -1 816
 title @a subtitle [{"text": "", "color": "gray"}, "filling ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/4"]
-fill -1 0 -1 -1 2010 800 air
+fill -1 0 -1 -1 2010 800 gray_concrete
 title @a subtitle [{"text": "", "color": "gray"}, "making sure ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/4"]
-fill -1 0 -1 -1 2010 800 air
+fill -1 0 -1 -1 2010 800 gray_concrete
 title @a subtitle [{"text": "", "color": "gray"}, "unloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/4"]
 forceload remove all
 
@@ -684,9 +685,9 @@ scoreboard players add temp_gen_stage_before_gen server 1
 title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/4"]
 forceload add 816 -1 816 816
 title @a subtitle [{"text": "", "color": "gray"}, "filling ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/4"]
-fill 800 0 -1 800 2010 800 air
+fill 800 0 -1 800 2010 800 gray_concrete
 title @a subtitle [{"text": "", "color": "gray"}, "making sure ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/4"]
-fill 800 0 -1 800 2010 800 air
+fill 800 0 -1 800 2010 800 gray_concrete
 title @a subtitle [{"text": "", "color": "gray"}, "unloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/4"]
 forceload remove all
 
@@ -694,9 +695,9 @@ scoreboard players add temp_gen_stage_before_gen server 1
 title @a subtitle [{"text": "", "color": "gray"}, "forceloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/4"]
 forceload add -1 816 816 816
 title @a subtitle [{"text": "", "color": "gray"}, "filling ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/4"]
-fill -1 0 800 800 2010 800 air
+fill -1 0 800 800 2010 800 gray_concrete
 title @a subtitle [{"text": "", "color": "gray"}, "making sure ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/4"]
-fill -1 0 800 800 2010 800 air
+fill -1 0 800 800 2010 800 gray_concrete
 title @a subtitle [{"text": "", "color": "gray"}, "unloading ", {"score": {"name": "temp_gen_stage_before_gen", "objective": "server"}}, "/4"]
 forceload remove all
 

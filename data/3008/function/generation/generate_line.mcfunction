@@ -74,7 +74,7 @@ execute if score temp-1 server matches 1.. run scoreboard players remove temp-1 
 execute if score temp-1 server matches 1.. run return 1
 
 tellraw @a[scores={logging=1}] "! log: exiting generate_line function"
-execute if score temp-30% server matches 4 run scoreboard players set temp_gen_delay2 server 70
+execute if score temp-30% server matches 5 run scoreboard players set temp_gen_delay2 server 70
 kill @e[type=armor_stand, tag=generating2]
 forceload remove all
 forceload add ~-32 ~-32 ~32 ~32

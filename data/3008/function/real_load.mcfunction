@@ -89,16 +89,18 @@ scoreboard objectives add health dummy
         scoreboard objectives add health.percentage.anim_prev dummy
     scoreboard objectives add health.percentage_minecraftlike dummy
         scoreboard objectives modify health.percentage_minecraftlike rendertype hearts
-    scoreboard objectives add health.take_damage dummy
+    scoreboard objectives add health.take_fall_damage dummy
     scoreboard objectives add health.damage_taken minecraft.custom:minecraft.damage_taken
     scoreboard objectives add health.fall_distance minecraft.custom:minecraft.fall_one_cm
     scoreboard objectives add health.fall_timer dummy
+    scoreboard objectives add health.fall_timer.altitude dummy
     scoreboard objectives add health.fall_timer_true dummy
     scoreboard objectives add health.death_anim dummy
         scoreboard objectives add health.death_anim.reason dummy
     scoreboard objectives add health.regen_timer dummy
     scoreboard objectives add health.air air
         scoreboard objectives add health.air_percentage dummy
+    scoreboard objectives add health.last_damage dummy
 scoreboard objectives setdisplay list health
 scoreboard objectives setdisplay below_name health
 scoreboard objectives modify health displayname {"text": "❤", "color": "#7EFC20"}

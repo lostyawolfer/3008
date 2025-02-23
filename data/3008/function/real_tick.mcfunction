@@ -72,6 +72,7 @@ effect give @a instant_health 5 0 true
 execute as @a run attribute @s attack_speed modifier add 3008:base 2000000 add_value
 execute as @a run attribute @s attack_damage modifier add 3008:base -.75 add_multiplied_total
 execute as @e[type=zombie] run data merge entity @s {Fire: -20s}
+scoreboard players set @a health.last_damage 0
 
 execute as @a store result score @s stat.sleep_time run data get entity @s SleepTimer
 
@@ -118,12 +119,14 @@ execute as @a[scores={hunger.add=1..}] run scoreboard players reset @s hunger.ad
 
 execute as @a unless score @s hunger.real matches 0..20 run effect give @s hunger 1 0 true
 execute as @a unless score @s hunger matches ..50000 run scoreboard players set @s hunger 50000
-execute as @a if score @s hunger matches ..-80 run scoreboard players remove @s health 10
-execute as @a if score @s hunger matches ..-80 run scoreboard players set @s hunger 0
-execute as @a unless score @s stat.sleep_time matches 1.. if score @s stat.walking matches 1.. run scoreboard players remove @s hunger 1
-execute as @a unless score @s stat.sleep_time matches 1.. if score @s stat.sprinting matches 1.. run scoreboard players remove @s hunger 3
-execute as @a unless score @s stat.sleep_time matches 1.. unless score @s stat.sprinting matches 1.. if score @s stat.jump matches 1.. run scoreboard players remove @s hunger 5
-execute as @a unless score @s stat.sleep_time matches 1.. if score @s stat.sprinting matches 1.. if score @s stat.jump matches 1.. run scoreboard players remove @s hunger 20
+execute as @a if score @s hunger matches ..0 if score @s hunger.real matches 0 run scoreboard players remove @s hunger 1
+execute as @a if score @s hunger matches -999..0 run scoreboard players set @s hunger -1000
+execute as @a if score @s hunger matches ..-1080 run function 3008:life/damage {damage: 10, reason: 3, silent: 0}
+execute as @a if score @s hunger matches ..-1080 run scoreboard players set @s hunger -1000
+execute as @a unless score @s stat.sleep_time matches 1.. if score @s stat.walking matches 1.. if score @s hunger matches 1.. run scoreboard players remove @s hunger 1
+execute as @a unless score @s stat.sleep_time matches 1.. if score @s stat.sprinting matches 1.. if score @s hunger matches 1.. run scoreboard players remove @s hunger 3
+execute as @a unless score @s stat.sleep_time matches 1.. unless score @s stat.sprinting matches 1.. if score @s stat.jump matches 1.. if score @s hunger matches 1.. run scoreboard players remove @s hunger 50
+execute as @a unless score @s stat.sleep_time matches 1.. if score @s stat.sprinting matches 1.. if score @s stat.jump matches 1.. if score @s hunger matches 1.. run scoreboard players remove @s hunger 100
 
 execute as @a run scoreboard players operation @s hunger.minecraftlike = @s hunger
 execute as @a run scoreboard players operation @s hunger.minecraftlike *= 100 consts
@@ -141,14 +144,14 @@ execute as @a if score @s hunger.real <= @s hunger.minecraftlike run effect clea
 execute as @a if score @s hunger.minecraftlike matches 20.. if entity @s[tag=regenerating] run scoreboard players remove @s health.regen_timer 4
 execute as @a if score @s hunger.minecraftlike matches 20.. if entity @s[tag=regenerating] run scoreboard players remove @s hunger 4
 
-execute as @a if score @s hunger.minecraftlike matches 18.. if entity @s[tag=regenerating] run scoreboard players remove @s health.regen_timer 2
-execute as @a if score @s hunger.minecraftlike matches 18.. if entity @s[tag=regenerating] run scoreboard players remove @s hunger 3
+execute as @a if score @s hunger.minecraftlike matches 19.. if entity @s[tag=regenerating] run scoreboard players remove @s health.regen_timer 2
+execute as @a if score @s hunger.minecraftlike matches 19.. if entity @s[tag=regenerating] run scoreboard players remove @s hunger 3
 
-execute as @a if score @s hunger.minecraftlike matches 15.. if entity @s[tag=regenerating] run scoreboard players remove @s health.regen_timer 2
-execute as @a if score @s hunger.minecraftlike matches 15.. if entity @s[tag=regenerating] run scoreboard players remove @s hunger 2
+execute as @a if score @s hunger.minecraftlike matches 16.. if entity @s[tag=regenerating] run scoreboard players remove @s health.regen_timer 2
+execute as @a if score @s hunger.minecraftlike matches 16.. if entity @s[tag=regenerating] run scoreboard players remove @s hunger 2
 
-execute as @a if score @s hunger.minecraftlike matches 10.. if entity @s[tag=regenerating] run scoreboard players remove @s health.regen_timer 1
-execute as @a if score @s hunger.minecraftlike matches 10.. if entity @s[tag=regenerating] run scoreboard players remove @s hunger 1
+execute as @a if score @s hunger.minecraftlike matches 11.. if entity @s[tag=regenerating] run scoreboard players remove @s health.regen_timer 1
+execute as @a if score @s hunger.minecraftlike matches 11.. if entity @s[tag=regenerating] run scoreboard players remove @s hunger 1
 
 
 
@@ -288,7 +291,7 @@ function 3008:item/action {item: rabbit_stew, type: add, health: 7, hunger: 5}
 execute if score time server matches 0 if score time.weekday server matches 2 run scoreboard players add GLOBAL server.items_spawned 1
 
 
-execute as @a[scores={pickup_delay=1..}] run item replace entity @s container.2 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
+execute as @a[scores={pickup_delay=1..}] run function 3008:misc/item_barrier {selector: "@s", slot: "container.2"}
 execute as @a[scores={pickup_delay=1..}] run scoreboard players remove @s pickup_delay 1
 function 3008:item/inventory {item: apple, stack: 5}
 function 3008:item/inventory {item: totem_of_undying, stack: 1}
@@ -400,13 +403,13 @@ execute as @a[gamemode=adventure] unless score @s holding.current_block matches 
 execute as @a[gamemode=adventure] unless score @s holding.current_block matches 1.. unless score @s pickup_delay matches 1.. run item replace entity @a[gamemode=adventure] container.2 with air
 
 execute as @a[gamemode=adventure] if score @s holding.current_block matches 1.. run clear @s *[custom_data={game:1}]
-execute as @a[gamemode=adventure] if score @s holding.current_block matches 1.. run item replace entity @s container.2 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-execute as @a[gamemode=adventure] unless entity @s[nbt={Inventory:[{Slot: 3b}]}] run item replace entity @s container.3 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-execute as @a[gamemode=adventure] unless entity @s[nbt={Inventory:[{Slot: 4b}]}] run item replace entity @s container.4 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-execute as @a[gamemode=adventure] unless entity @s[nbt={Inventory:[{Slot: 5b}]}] run item replace entity @s container.5 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-execute as @a[gamemode=adventure] unless entity @s[nbt={Inventory:[{Slot: 6b}]}] run item replace entity @s container.6 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-execute as @a[gamemode=adventure] unless entity @s[nbt={Inventory:[{Slot: 7b}]}] run item replace entity @s container.7 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-execute as @a[gamemode=adventure] unless entity @s[nbt={Inventory:[{Slot: 8b}]}] run item replace entity @s container.8 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
+execute as @a[gamemode=adventure] if score @s holding.current_block matches 1.. run function 3008:misc/item_barrier {selector: "@s", slot: "container.2"}
+execute as @a[gamemode=adventure] unless entity @s[nbt={Inventory:[{Slot: 3b}]}] run function 3008:misc/item_barrier {selector: "@s", slot: "container.3"}
+execute as @a[gamemode=adventure] unless entity @s[nbt={Inventory:[{Slot: 4b}]}] run function 3008:misc/item_barrier {selector: "@s", slot: "container.4"}
+execute as @a[gamemode=adventure] unless entity @s[nbt={Inventory:[{Slot: 5b}]}] run function 3008:misc/item_barrier {selector: "@s", slot: "container.5"}
+execute as @a[gamemode=adventure] unless entity @s[nbt={Inventory:[{Slot: 6b}]}] run function 3008:misc/item_barrier {selector: "@s", slot: "container.6"}
+execute as @a[gamemode=adventure] unless entity @s[nbt={Inventory:[{Slot: 7b}]}] run function 3008:misc/item_barrier {selector: "@s", slot: "container.7"}
+execute as @a[gamemode=adventure] unless entity @s[nbt={Inventory:[{Slot: 8b}]}] run function 3008:misc/item_barrier {selector: "@s", slot: "container.8"}
 
 execute as @a[gamemode=adventure] run item replace entity @s player.crafting.0 with air
 execute as @a[gamemode=adventure] run item replace entity @s player.crafting.1 with air
@@ -414,33 +417,33 @@ execute as @a[gamemode=adventure] run item replace entity @s player.crafting.2 w
 execute as @a[gamemode=adventure] run item replace entity @s player.crafting.3 with air
 
 
-item replace entity @a[gamemode=adventure] container.9 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.10 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.11 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.12 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.13 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.14 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.15 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.16 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.17 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.18 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.19 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.20 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.21 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.22 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.23 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.24 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.25 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.26 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.27 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.28 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.29 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.30 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.31 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.32 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.33 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.34 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-item replace entity @a[gamemode=adventure] container.35 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.9"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.10"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.11"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.12"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.13"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.14"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.15"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.16"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.17"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.18"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.19"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.20"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.21"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.22"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.23"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.24"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.25"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.26"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.27"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.28"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.29"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.30"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.31"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.32"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.33"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.34"}
+function 3008:misc/item_barrier {selector: "@a[gamemode=adventure]", slot: "container.35"}
 
 item replace entity @a[gamemode=adventure] container.0 with clock[custom_data={game:0}, max_stack_size=1]
 
@@ -510,12 +513,15 @@ team join creative @a[gamemode=creative, team=!creative]
 
 effect give @a[scores={stat.sleep_time=100..}] blindness 2 0 true
 
-execute as @a if score @s health.fall_timer matches 0.. run scoreboard players add @s health.fall_timer 1
-execute as @a if score @s health.fall_timer matches 0.. run scoreboard players add @s health.fall_timer_true 1
-execute as @a[nbt={OnGround:0b}, gamemode=adventure] at @s if blocks ~ ~-1 ~ ~ ~-20 ~ ~ ~ ~ all if block ~ ~ ~ air unless score @s health.fall_timer matches 0.. run scoreboard players set @s health.fall_timer 1
+execute as @a store result score @s health.fall_timer.altitude run data get entity @s Pos[1]
+
+execute as @a if score @s health.fall_timer matches -20.. run scoreboard players add @s health.fall_timer 1
+execute as @a if score @s health.fall_timer matches -20.. run scoreboard players add @s health.fall_timer_true 1
+execute as @a[nbt={OnGround:0b}, gamemode=adventure] at @s if blocks ~ ~-1 ~ ~ ~-20 ~ ~ ~ ~ masked if block ~ ~ ~ air unless score @s health.fall_timer matches 0.. run scoreboard players set @s health.fall_timer 0
+execute as @a[nbt={OnGround:0b}, gamemode=adventure] at @s if score @s health.fall_timer.altitude matches ..-16 unless score @s health.fall_timer matches -20.. run scoreboard players set @s health.fall_timer 10
 execute as @a[nbt={OnGround:1b}] run scoreboard players reset @s health.fall_timer
-execute as @a at @s unless block ~ ~ ~ air run scoreboard players reset @s health.fall_timer
-execute as @a unless score @s health.fall_timer matches 0.. run scoreboard players reset @s health.fall_timer_true
+execute as @a at @s unless block ~ ~ ~ air unless score @s health.fall_timer.altitude matches ..-16 run scoreboard players reset @s health.fall_timer
+execute as @a unless score @s health.fall_timer matches -20.. run scoreboard players reset @s health.fall_timer_true
 
 
 execute as @a[scores={health.fall_timer=10  }] at @s run playsound 3008:fall_loop master @s[tag=!dead] ~ ~ ~ 1 1 1
@@ -550,8 +556,7 @@ execute as @a[scores={health.fall_timer=24}] if score @s health matches 1.. run 
 
 
 execute as @a[scores={health.air=..0}] at @s run playsound entity.drowned.ambient_water master @s ~ ~ ~ 1 1 1
-execute as @a[scores={health.air=..0}] run scoreboard players remove @s health 3
-execute as @a[scores={health.air=..0}] if score @s health matches ..0 at @s run function 3008:life/kill {reason: drown}
+execute as @a[scores={health.air=..0}] run function 3008:life/damage {damage: 3, reason: 2, silent: 1}
 
 
 
@@ -664,22 +669,22 @@ execute as @a[scores={stat.last_fall_distance=1..}] run scoreboard players opera
 execute as @a[scores={health.fall_distance=300..}] at @s run damage @s .01
 execute as @a[scores={health.fall_distance=1..}] run stopsound @s * 3008:fall_cont
 execute as @a[nbt={OnGround:1b}] run stopsound @s * 3008:fall_cont
-execute as @a[scores={health.fall_distance=300..}] run scoreboard players operation @s health.take_damage += @s health.fall_distance
-execute as @a[scores={health.fall_distance=300..699}] run scoreboard players operation @s health.take_damage /= 60 consts
-execute as @a[scores={health.fall_distance=700..1199}] run scoreboard players operation @s health.take_damage /= 30 consts
-execute as @a[scores={health.fall_distance=1200..}] run scoreboard players operation @s health.take_damage /= 20 consts
-execute as @a[scores={health.fall_distance=1500..99999}] if score @s health.take_damage >= @s health at @s run function 3008:life/kill {reason: fall}
-execute as @a[scores={health.fall_distance=100000..}] if score @s health.take_damage >= @s health at @s run function 3008:life/kill {reason: long_fall}
+execute as @a[scores={health.fall_distance=300..}] run scoreboard players operation @s health.take_fall_damage += @s health.fall_distance
+execute as @a[scores={health.fall_distance=300..699}] run scoreboard players operation @s health.take_fall_damage /= 60 consts
+execute as @a[scores={health.fall_distance=700..1199}] run scoreboard players operation @s health.take_fall_damage /= 30 consts
+execute as @a[scores={health.fall_distance=1200..}] run scoreboard players operation @s health.take_fall_damage /= 20 consts
+execute as @a[scores={health.fall_distance=..99999}] run scoreboard players set @s health.last_damage 1
+execute as @a[scores={health.fall_distance=100000..}] run scoreboard players set @s health.last_damage -1
 
-execute as @a[scores={health.fall_distance=1..}] run tellraw @a[scores={logging=..1}] ["! log: falling distance is ", {"score": {"name": "@s", "objective": "health.fall_distance"}}]
+# execute as @a[scores={health.fall_distance=1..}] run tellraw @a[scores={logging=..1}] ["! log: falling distance is ", {"score": {"name": "@s", "objective": "health.fall_distance"}}]
 execute as @a[scores={health.fall_distance=1..}] run scoreboard players reset @s health.fall_distance
 
 execute as @a[scores={health.damage_taken=1..}] run scoreboard players operation @s health.damage_taken /= 2 consts
-execute as @a[scores={health.damage_taken=1..}] run scoreboard players operation @s health.take_damage += @s health.damage_taken
+execute as @a[scores={health.damage_taken=1..}] run scoreboard players operation @s health.take_fall_damage += @s health.damage_taken
 execute as @a[scores={health.damage_taken=1..}] run scoreboard players reset @s health.damage_taken
 
-execute as @a[scores={health.take_damage=1..}] run scoreboard players operation @s health -= @s health.take_damage
-execute as @a[scores={health.take_damage=1..}] run scoreboard players reset @s health.take_damage
+execute as @a[scores={health.take_fall_damage=1..}] run scoreboard players operation @s health -= @s health.take_fall_damage
+execute as @a[scores={health.take_fall_damage=1..}] run scoreboard players reset @s health.take_fall_damage
 
 
 execute as @a unless score @s health.max_health matches -2147483648..2147483647 run scoreboard players set @s health.max_health 100
@@ -701,9 +706,6 @@ execute as @a[scores={health=1..}] run tag @s remove dead
 
 execute as @a[tag=!dead] at @s run scoreboard players reset @s health.death_anim
 execute as @a[tag=!dead] at @s run scoreboard players reset @s health.death_anim.reason
-
-execute as @a[tag=dead] at @s unless score @s health.death_anim matches 1.. run function 3008:life/kill {reason: normal}
-execute as @a[tag=dead] at @s run function 3008:life/death_anims/for_all_dead
 
 # #execute as @a[tag=!dead] if score @s health.percentage matches 9999.. run title @s actionbar [{"text": "inf", "color": "blue"}, {"text": "/", "color":"gray"}, {"score": {"name": "@s", "objective": "health.max_health"}, "color": "gray"}]
 # execute as @a[tag=!dead] if score @s health > @s health.max_health run title @s actionbar [{"score": {"name": "@s", "objective": "health"}, "color": "aqua"}, {"text": "/", "color":"gray"}, {"score": {"name": "@s", "objective": "health.max_health"}, "color": "gray"}]
@@ -803,6 +805,9 @@ execute as @a unless score @s health matches 1..5 run attribute @s jump_strength
 execute as @a unless score @s health matches 1..5 run attribute @s movement_speed modifier remove 3008:extra_low_health
 execute as @a unless score @s health matches 1..5 run attribute @s movement_efficiency modifier remove 3008:extra_low_health
 
+
+execute as @a[tag=dead] at @s unless score @s health.death_anim matches 1.. run function 3008:life/kill
+execute as @a[tag=dead] at @s run function 3008:life/death_anims/for_all_dead
 
 execute as @a at @s run function 3008:misc/screens
 

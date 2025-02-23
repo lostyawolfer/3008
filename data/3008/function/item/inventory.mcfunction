@@ -9,15 +9,15 @@ $execute as @a if score @s item.picked_up.$(item) matches 1.. run item replace e
 $execute as @a if score @s item.picked_up.$(item) matches 1.. run item replace entity @s[nbt={Inventory:[{Slot: 8b, id: "minecraft:barrier"}]}] container.8 with air
 
 $execute as @a if score @s item.picked_up.$(item) matches 1.. run scoreboard players set @s pickup_delay 10
-$execute as @a if score @s item.picked_up.$(item) matches 1.. run item replace entity @s container.2 with barrier
+$execute as @a if score @s item.picked_up.$(item) matches 1.. run function 3008:misc/item_barrier {selector: "@s", slot: "container.2"}
 $execute as @a if score @s item.picked_up.$(item) matches 1.. run give @s minecraft:$(item)[food={nutrition:0, saturation:0, can_always_eat:true}, max_stack_size=$(stack)]
 
-$execute as @a if score @s item.picked_up.$(item) matches 1.. run item replace entity @s[nbt=!{Inventory:[{Slot: 3b}]}] container.3 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-$execute as @a if score @s item.picked_up.$(item) matches 1.. run item replace entity @s[nbt=!{Inventory:[{Slot: 4b}]}] container.4 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-$execute as @a if score @s item.picked_up.$(item) matches 1.. run item replace entity @s[nbt=!{Inventory:[{Slot: 5b}]}] container.5 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-$execute as @a if score @s item.picked_up.$(item) matches 1.. run item replace entity @s[nbt=!{Inventory:[{Slot: 6b}]}] container.6 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-$execute as @a if score @s item.picked_up.$(item) matches 1.. run item replace entity @s[nbt=!{Inventory:[{Slot: 7b}]}] container.7 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
-$execute as @a if score @s item.picked_up.$(item) matches 1.. run item replace entity @s[nbt=!{Inventory:[{Slot: 8b}]}] container.8 with barrier[hide_tooltip={}, custom_name='""', custom_data={game:0}, max_stack_size=1]
+$execute as @a if score @s item.picked_up.$(item) matches 1.. run function 3008:misc/item_barrier {selector: "@s[nbt=!{Inventory:[{Slot: 3b}]}]", slot: "container.3"}
+$execute as @a if score @s item.picked_up.$(item) matches 1.. run function 3008:misc/item_barrier {selector: "@s[nbt=!{Inventory:[{Slot: 4b}]}]", slot: "container.4"}
+$execute as @a if score @s item.picked_up.$(item) matches 1.. run function 3008:misc/item_barrier {selector: "@s[nbt=!{Inventory:[{Slot: 5b}]}]", slot: "container.5"}
+$execute as @a if score @s item.picked_up.$(item) matches 1.. run function 3008:misc/item_barrier {selector: "@s[nbt=!{Inventory:[{Slot: 6b}]}]", slot: "container.6"}
+$execute as @a if score @s item.picked_up.$(item) matches 1.. run function 3008:misc/item_barrier {selector: "@s[nbt=!{Inventory:[{Slot: 7b}]}]", slot: "container.7"}
+$execute as @a if score @s item.picked_up.$(item) matches 1.. run function 3008:misc/item_barrier {selector: "@s[nbt=!{Inventory:[{Slot: 8b}]}]", slot: "container.8"}
 
 $execute as @a if score @s item.picked_up.$(item) matches 1.. run scoreboard players remove @s item.picked_up.$(item) 1
 
