@@ -94,6 +94,7 @@ scoreboard objectives add health dummy
     scoreboard objectives add health.fall_distance minecraft.custom:minecraft.fall_one_cm
     scoreboard objectives add health.fall_timer dummy
     scoreboard objectives add health.fall_timer_true dummy
+    scoreboard objectives add health.last_damage_reason dummy
     scoreboard objectives add health.death_anim dummy
         scoreboard objectives add health.death_anim.reason dummy
     scoreboard objectives add health.regen_timer dummy

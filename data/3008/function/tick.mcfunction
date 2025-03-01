@@ -2,13 +2,23 @@ time set midnight
 execute as @a[tag=!set_up] run function 3008:misc/spawntp
 tag @a[tag=!set_up] add set_up
 gamemode adventure @a[gamemode=survival]
-#gamemode adventure @a[gamemode=spectator, scores={health=1..}]
 recipe take @a *
-#effect give @a saturation 5 0 true
 effect give @a instant_health 5 0 true
 execute as @a run attribute @s attack_speed modifier add 3008:base 2000000 add_value
 execute as @a run attribute @s attack_damage modifier add 3008:base -.75 add_multiplied_total
 execute as @e[type=zombie] run data merge entity @s {Fire: -20s}
+
+team join player @a[gamemode=adventure, scores={stat.sleep_time=0..99}, team=!player]
+team join sleeping @a[gamemode=adventure, scores={stat.sleep_time=100..}, team=!sleeping]
+team join dead @a[gamemode=spectator, tag=dead, team=!dead]
+team join spectator @a[gamemode=spectator, tag=!dead, team=!spectator]
+team join creative @a[gamemode=creative, team=!creative]
+
+
+
+
+
+
 
 execute as @a store result score @s stat.sleep_time run data get entity @s SleepTimer
 
@@ -37,142 +47,40 @@ execute as @a if score @s stat.sleep_time matches 10.. if score sleepcount serve
 
 
 
-execute as @a[tag=!regenerating] unless score @s health >= @s health.max_health run scoreboard players set @s health.regen_timer 10000
-execute as @a[tag=!regenerating] unless score @s health >= @s health.max_health run scoreboard players operation @s health.regen_timer /= @s health.percentage
-execute as @a[tag=!regenerating] unless score @s health >= @s health.max_health run scoreboard players operation @s health.regen_timer *= 2 consts
-execute as @a[tag=!regenerating] unless score @s health >= @s health.max_health run tag @s add regenerating
-
-#execute as @a[tag=regenerating] if score @s health.regen_timer matches 1.. run scoreboard players remove @s health.regen_timer 1
-execute as @a[tag=regenerating] if score @s health.regen_timer matches ..0 run scoreboard players add @s health 1
-execute as @a[tag=regenerating] if score @s health.regen_timer matches ..0 run tag @s remove regenerating
 
 
 
-execute as @a[scores={hunger.add=1..}] run scoreboard players operation @s hunger.add *= 2500 consts
-execute as @a[scores={hunger.add=1..}] run scoreboard players operation @s hunger += @s hunger.add
-execute as @a[scores={hunger.add=1..}] run scoreboard players reset @s hunger.add
+# execute as @a if score @s stat.playtime matches 12000 run tellraw @s {"text": "\n[tip] tired of carrying only One Block At A Time™? use minecraft's native dropping mechanic to move blocks in bulks!", "color": "#8ad4ff"}
 
 
-execute as @a unless score @s hunger.real matches 0..20 run effect give @s hunger 1 0 true
-execute as @a unless score @s hunger matches ..50000 run scoreboard players set @s hunger 50000
-execute as @a if score @s hunger matches ..-80 run scoreboard players remove @s health 10
-execute as @a if score @s hunger matches ..-80 run scoreboard players set @s hunger 0
-execute as @a unless score @s stat.sleep_time matches 1.. if score @s stat.walking matches 1.. run scoreboard players remove @s hunger 1
-execute as @a unless score @s stat.sleep_time matches 1.. if score @s stat.sprinting matches 1.. run scoreboard players remove @s hunger 3
-execute as @a unless score @s stat.sleep_time matches 1.. unless score @s stat.sprinting matches 1.. if score @s stat.jump matches 1.. run scoreboard players remove @s hunger 5
-execute as @a unless score @s stat.sleep_time matches 1.. if score @s stat.sprinting matches 1.. if score @s stat.jump matches 1.. run scoreboard players remove @s hunger 20
+# execute as @a unless score @s tip.night matches 1.. if score daytime server matches ..-1 run scoreboard players set @s tip.night 1
+# execute as @a if score @s tip.night matches 1 if score @s stat.playtime matches 1400.. run tellraw @s {"text": "\n[tip] use beds to make time go faster! they also let you heal faster. but be careful... there are monsters nearby...", "color": "#8ad4ff"}
+# execute as @a if score @s tip.night matches 1 if score @s stat.playtime matches 1400.. run scoreboard players set @s tip.night 2
 
-execute as @a run scoreboard players operation @s hunger.minecraftlike = @s hunger
-execute as @a run scoreboard players operation @s hunger.minecraftlike *= 100 consts
-execute as @a run scoreboard players operation @s hunger.minecraftlike /= 50000 consts
-execute as @a run scoreboard players operation @s hunger.minecraftlike /= 5 consts
-execute as @a run scoreboard players operation @s hunger.minecraftlike += 1 consts
+# execute as @a unless score @s tip.night_blood matches 1.. if score daytime server matches -2 run scoreboard players set @s tip.night_blood 1
+# execute as @a if score @s tip.night_blood matches 1 if score @s stat.playtime matches 400.. run tellraw @s {"text": "\n[tip] this is a BLOOD NIGHT. be careful, the employees have gone rogue... and they really hurt. watch out even if you built a base in the sky!\njust so you know, this happens randomly with 1/10 chance every night.\nCurrent objective: SURVIVE.", "color": "#8ad4ff"}
+# execute as @a if score @s tip.night_blood matches 1 if score @s stat.playtime matches 400.. run scoreboard players set @s tip.night_blood 2
 
-execute as @a if score @s hunger.real > @s hunger.minecraftlike run effect give @s hunger infinite 255 true
-execute as @a if score @s hunger.real < @s hunger.minecraftlike run effect give @s saturation infinite 0 true
+# execute as @a unless score @s tip.night_fog matches 1.. if score daytime server matches -3 run scoreboard players set @s tip.night_fog 1
+# execute as @a if score @s tip.night_fog matches 1 if score @s stat.playtime matches 400.. run tellraw @s {"text": "\n[tip] welcome to a foggy night! the employees are slow, and they can't hurt you.\nyep, you got it right, THIS NIGHT IS SAFE!!!\njust so you know, this happens randomly with 1/30 chance every night.", "color": "#8ad4ff"}
+# execute as @a if score @s tip.night_fog matches 1 if score @s stat.playtime matches 400.. run scoreboard players set @s tip.night_fog 2
 
-execute as @a if score @s hunger.real >= @s hunger.minecraftlike run effect clear @s saturation
-execute as @a if score @s hunger.real <= @s hunger.minecraftlike run effect clear @s hunger
+# execute as @a unless score @s tip.day_fog matches 1.. if score daytime server matches 2 run scoreboard players set @s tip.day_fog 1
+# execute as @a if score @s tip.day_fog matches 1 if score @s stat.playtime matches 400.. run tellraw @s {"text": "\n[tip] welcome to your first foggy day! the employees are slow, but it... hurts.\nyep, you got it right, THIS DAY IS NOT SAFE!!!\njust so you know, this happens randomly with 1/15 chance every day.", "color": "#8ad4ff"}
+# execute as @a if score @s tip.day_fog matches 1 if score @s stat.playtime matches 400.. run scoreboard players set @s tip.day_fog 2
 
+# execute as @a unless score @s tip.day matches 1.. if score daytime server matches 1 run scoreboard players set @s tip.day 1
+# execute as @a if score @s tip.day matches 1 if score @s stat.playtime matches 100.. run tellraw @s {"text": "\n[tip] daytime. it's bright, and SAFE. use the daytime to your advantage to gain BUILDING MATERIALS and CONSUMABLE RESOURCES.\nat night, the employees will be mad at you because the store is closed.\nyour objective is to use everything you see in this shop to your advantage to survive!\nneed inspiration of what to build first? build a .I. using oak planks :)", "color": "#8ad4ff"}
+# execute as @a if score @s tip.day matches 1 if score @s stat.playtime matches 100.. run scoreboard players set @s tip.day 2
 
-execute as @a if score @s hunger.minecraftlike matches 20.. if entity @s[tag=regenerating] run scoreboard players remove @s health.regen_timer 4
-execute as @a if score @s hunger.minecraftlike matches 20.. if entity @s[tag=regenerating] run scoreboard players remove @s hunger 4
+# execute as @a unless score @s tip.playtime matches 1.. run scoreboard players set @s tip.playtime 1
+# execute as @a if score @s tip.playtime matches 1 if score @s stat.playtime matches 500.. run tellraw @s {"text": "\n[tip] use the clock to see the current TIME. the shop opens at 07:00 and closes at 22:00. use this to your advantage and MANAGE your time!\nthere you may also see a WEEKDAY. i'll tell you about this later!", "color": "#8ad4ff"}
+# execute as @a if score @s tip.playtime matches 1 if score @s stat.playtime matches 500.. run scoreboard players set @s tip.playtime 2
 
-execute as @a if score @s hunger.minecraftlike matches 18.. if entity @s[tag=regenerating] run scoreboard players remove @s health.regen_timer 2
-execute as @a if score @s hunger.minecraftlike matches 18.. if entity @s[tag=regenerating] run scoreboard players remove @s hunger 3
+# execute as @a if score @s tip.playtime matches 2 run scoreboard players set @s tip.playtime 3
+# execute as @a if score @s tip.playtime matches 3 if score @s stat.playtime matches 40000.. run tellraw @s {"text": "\n[tip] so, as promised. the weekdays. they determine some important EVENTS that happen during the week.\nfirstly, the shop has a shorter day every SATURDAY and SUNDAY (closes at 18:00)\nevery TUESDAY some of the food items restock in the places you found them for the first time.\nuse this information to your advantage to plan for employee attacks and get your life together!", "color": "#8ad4ff"}
+# execute as @a if score @s tip.playtime matches 3 if score @s stat.playtime matches 40000.. run scoreboard players set @s tip.playtime 4
 
-execute as @a if score @s hunger.minecraftlike matches 15.. if entity @s[tag=regenerating] run scoreboard players remove @s health.regen_timer 2
-execute as @a if score @s hunger.minecraftlike matches 15.. if entity @s[tag=regenerating] run scoreboard players remove @s hunger 2
-
-execute as @a if score @s hunger.minecraftlike matches 10.. if entity @s[tag=regenerating] run scoreboard players remove @s health.regen_timer 1
-execute as @a if score @s hunger.minecraftlike matches 10.. if entity @s[tag=regenerating] run scoreboard players remove @s hunger 1
-
-
-
-
-
-execute unless score time.day server matches 1.. run scoreboard players set time.day server 1
-
-execute unless score time server matches 0.. run scoreboard players set time.day server 1
-execute unless score time server matches 0.. run scoreboard players set time server 8400
-execute if score playercount server matches 1.. run scoreboard players add time server 1
-execute if score time server matches 28800.. run scoreboard players add time.day server 1
-execute if score time server matches 28800.. run scoreboard players set time server 0
-
-scoreboard players operation time.weekday server = time.day server
-scoreboard players operation time.weekday server %= 7 consts
-#scoreboard players add time.weekday server 1
-
-scoreboard players operation time.m server = time server
-scoreboard players operation time.m server /= 20 consts
-scoreboard players operation time.m server %= 60 consts
-
-scoreboard players operation time.h server = time server
-scoreboard players operation time.h server /= 20 consts
-scoreboard players operation time.h server /= 60 consts
-
-scoreboard players operation time.t server = time server
-scoreboard players operation time.t server %= 20 consts
-
-
-execute unless score time.weekday server matches 6 unless score time.weekday server matches 0 if score time.h server matches 7..21 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches 0.. if score time.day server matches 12.. store result score temp server run function 3008:misc/generate_random {min: 1, max: 15}
-execute unless score time.weekday server matches 6 unless score time.weekday server matches 0 if score time.h server matches 7..21 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches 0.. unless score time.day server matches 12.. store result score temp server run function 3008:misc/generate_random {min: 2, max: 15}
-execute unless score time.weekday server matches 6 unless score time.weekday server matches 0 if score time.h server matches 7..21 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches 0.. if score temp server matches 1 run scoreboard players set daytime server 2
-execute unless score time.weekday server matches 6 unless score time.weekday server matches 0 if score time.h server matches 7..21 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches 0.. unless score temp server matches 1 run scoreboard players set daytime server 1
-
-execute unless score time.weekday server matches 6 unless score time.weekday server matches 0 unless score time.h server matches 7..21 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches ..0 if score time.day server matches 12.. store result score temp server run function 3008:misc/generate_random {min: 1, max: 30}
-execute unless score time.weekday server matches 6 unless score time.weekday server matches 0 unless score time.h server matches 7..21 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches ..0 unless score time.day server matches 12.. store result score temp server run function 3008:misc/generate_random {min: 5, max: 30}
-execute unless score time.weekday server matches 6 unless score time.weekday server matches 0 unless score time.h server matches 7..21 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches ..0 if score temp server matches 1 run scoreboard players set daytime server -3
-execute unless score time.weekday server matches 6 unless score time.weekday server matches 0 unless score time.h server matches 7..21 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches ..0 if score temp server matches 2..4 run scoreboard players set daytime server -2
-execute unless score time.weekday server matches 6 unless score time.weekday server matches 0 unless score time.h server matches 7..21 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches ..0 unless score temp server matches 1..4 run scoreboard players set daytime server -1
-
-
-
-execute if score time.weekday server matches 6 if score time.h server matches 7..17 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches 0.. store result score temp server run function 3008:misc/generate_random {min: 1, max: 15}
-execute if score time.weekday server matches 6 if score time.h server matches 7..17 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches 0.. if score temp server matches 1 run scoreboard players set daytime server 2
-execute if score time.weekday server matches 6 if score time.h server matches 7..17 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches 0.. unless score temp server matches 1 run scoreboard players set daytime server 1
-
-execute if score time.weekday server matches 6 unless score time.h server matches 7..17 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches ..0 unless score temp server matches 1..4 run scoreboard players set daytime server -1
-
-
-execute if score time.weekday server matches 0 if score time.h server matches 7..17 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches 0.. store result score temp server run function 3008:misc/generate_random {min: 1, max: 15}
-execute if score time.weekday server matches 0 if score time.h server matches 7..17 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches 0.. if score temp server matches 1 run scoreboard players set daytime server 2
-execute if score time.weekday server matches 0 if score time.h server matches 7..17 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches 0.. unless score temp server matches 1 run scoreboard players set daytime server 1
-
-execute if score time.weekday server matches 0 unless score time.h server matches 7..17 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches ..0 unless score temp server matches 1..4 run scoreboard players set daytime server -1
-
-
-
-execute as @a if score @s stat.playtime matches 12000 run tellraw @s {"text": "\n[tip] tired of carrying only One Block At A Time™? use minecraft's native dropping mechanic to move blocks in bulks!", "color": "#8ad4ff"}
-
-
-execute as @a unless score @s tip.night matches 1.. if score daytime server matches ..-1 run scoreboard players set @s tip.night 1
-execute as @a if score @s tip.night matches 1 if score @s stat.playtime matches 1400.. run tellraw @s {"text": "\n[tip] use beds to make time go faster! they also let you heal faster. but be careful... there are monsters nearby...", "color": "#8ad4ff"}
-execute as @a if score @s tip.night matches 1 if score @s stat.playtime matches 1400.. run scoreboard players set @s tip.night 2
-
-execute as @a unless score @s tip.night_blood matches 1.. if score daytime server matches -2 run scoreboard players set @s tip.night_blood 1
-execute as @a if score @s tip.night_blood matches 1 if score @s stat.playtime matches 400.. run tellraw @s {"text": "\n[tip] this is a BLOOD NIGHT. be careful, the employees have gone rogue... and they really hurt. watch out even if you built a base in the sky!\njust so you know, this happens randomly with 1/10 chance every night.\nCurrent objective: SURVIVE.", "color": "#8ad4ff"}
-execute as @a if score @s tip.night_blood matches 1 if score @s stat.playtime matches 400.. run scoreboard players set @s tip.night_blood 2
-
-execute as @a unless score @s tip.night_fog matches 1.. if score daytime server matches -3 run scoreboard players set @s tip.night_fog 1
-execute as @a if score @s tip.night_fog matches 1 if score @s stat.playtime matches 400.. run tellraw @s {"text": "\n[tip] welcome to a foggy night! the employees are slow, and they can't hurt you.\nyep, you got it right, THIS NIGHT IS SAFE!!!\njust so you know, this happens randomly with 1/30 chance every night.", "color": "#8ad4ff"}
-execute as @a if score @s tip.night_fog matches 1 if score @s stat.playtime matches 400.. run scoreboard players set @s tip.night_fog 2
-
-execute as @a unless score @s tip.day_fog matches 1.. if score daytime server matches 2 run scoreboard players set @s tip.day_fog 1
-execute as @a if score @s tip.day_fog matches 1 if score @s stat.playtime matches 400.. run tellraw @s {"text": "\n[tip] welcome to your first foggy day! the employees are slow, but it... hurts.\nyep, you got it right, THIS DAY IS NOT SAFE!!!\njust so you know, this happens randomly with 1/15 chance every day.", "color": "#8ad4ff"}
-execute as @a if score @s tip.day_fog matches 1 if score @s stat.playtime matches 400.. run scoreboard players set @s tip.day_fog 2
-
-execute as @a unless score @s tip.day matches 1.. if score daytime server matches 1 run scoreboard players set @s tip.day 1
-execute as @a if score @s tip.day matches 1 if score @s stat.playtime matches 100.. run tellraw @s {"text": "\n[tip] daytime. it's bright, and SAFE. use the daytime to your advantage to gain BUILDING MATERIALS and CONSUMABLE RESOURCES.\nat night, the employees will be mad at you because the store is closed.\nyour objective is to use everything you see in this shop to your advantage to survive!\nneed inspiration of what to build first? build a .I. using oak planks :)", "color": "#8ad4ff"}
-execute as @a if score @s tip.day matches 1 if score @s stat.playtime matches 100.. run scoreboard players set @s tip.day 2
-
-execute as @a unless score @s tip.playtime matches 1.. run scoreboard players set @s tip.playtime 1
-execute as @a if score @s tip.playtime matches 1 if score @s stat.playtime matches 500.. run tellraw @s {"text": "\n[tip] use the clock to see the current TIME. the shop opens at 07:00 and closes at 22:00. use this to your advantage and MANAGE your time!\nthere you may also see a WEEKDAY. i'll tell you about this later!", "color": "#8ad4ff"}
-execute as @a if score @s tip.playtime matches 1 if score @s stat.playtime matches 500.. run scoreboard players set @s tip.playtime 2
-
-execute as @a if score @s tip.playtime matches 2 run scoreboard players set @s tip.playtime 3
-execute as @a if score @s tip.playtime matches 3 if score @s stat.playtime matches 40000.. run tellraw @s {"text": "\n[tip] so, as promised. the weekdays. they determine some important EVENTS that happen during the week.\nfirstly, the shop has a shorter day every SATURDAY and SUNDAY (closes at 18:00)\nevery TUESDAY some of the food items restock in the places you found them for the first time.\nuse this information to your advantage to plan for employee attacks and get your life together!", "color": "#8ad4ff"}
-execute as @a if score @s tip.playtime matches 3 if score @s stat.playtime matches 40000.. run scoreboard players set @s tip.playtime 4
 
 
 execute unless score blood server matches 1 run scoreboard players set zombies_total_max server 10
@@ -185,6 +93,11 @@ execute if score zombies_total server < zombies_total_max server unless score zo
 execute if score zombies_true_total server matches 151.. run tp @e[tag=game, limit=5] 0 -200 0
 
 execute as @e[tag=game] at @s unless entity @a[distance=..50] run tp @s ~ ~-200 ~
+
+
+
+
+
 
 
 
@@ -425,70 +338,17 @@ item replace entity @a[gamemode=adventure] weapon.offhand with air
 
 
 
-execute as @a[scores={stat.drop=1}] run tellraw @s {"text": "\n[tip] building blocks you drop on the ground never despawn!\n5 min? 10 min? 1 hr? 1 day? 1 week? you name it! it will still be there.", "color": "#8ad4ff"}
-execute as @a[scores={stat.drop=1}] run scoreboard players set @s stat.drop 2
+# execute as @a[scores={stat.drop=1}] run tellraw @s {"text": "\n[tip] building blocks you drop on the ground never despawn!\n5 min? 10 min? 1 hr? 1 day? 1 week? you name it! it will still be there.", "color": "#8ad4ff"}
+# execute as @a[scores={stat.drop=1}] run scoreboard players set @s stat.drop 2
 
 
 
 
-execute if score blood server matches -1 at @a run worldborder warning distance 0
-execute unless score blood server matches 1 at @a unless score blood server matches -1 run worldborder warning distance 30000000
-execute if score blood server matches 1 at @a run worldborder warning distance 500000000
-execute if score blood server matches 1 as @a at @s run particle crimson_spore ~ ~5 ~ 20 40 20 1 40 force @s
 
-execute unless score zombie_state server matches 1 as @e[type=zombie, tag=game] at @s run function 3008:misc/convert_self {convert_to: zombified_piglin}
-execute if score zombie_state server matches 1 as @e[type=zombified_piglin, tag=game] at @s run function 3008:misc/convert_self {convert_to: zombie}
-
-team join player @a[gamemode=adventure, scores={stat.sleep_time=0..99}, team=!player]
-team join sleeping @a[gamemode=adventure, scores={stat.sleep_time=100..}, team=!sleeping]
-team join dead @a[gamemode=spectator, tag=dead, team=!dead]
-team join spectator @a[gamemode=spectator, tag=!dead, team=!spectator]
-team join creative @a[gamemode=creative, team=!creative]
 
 effect give @a[scores={stat.sleep_time=100..}] blindness 2 0 true
 
-execute as @a if score @s health.fall_timer matches 0.. run scoreboard players add @s health.fall_timer 1
-execute as @a if score @s health.fall_timer matches 0.. run scoreboard players add @s health.fall_timer_true 1
-execute as @a[nbt={OnGround:0b}, gamemode=adventure] at @s if blocks ~ ~-1 ~ ~ ~-20 ~ ~ ~ ~ all if block ~ ~ ~ air unless score @s health.fall_timer matches 0.. run scoreboard players set @s health.fall_timer 1
-execute as @a[nbt={OnGround:1b}] run scoreboard players reset @s health.fall_timer
-execute as @a at @s unless block ~ ~ ~ air run scoreboard players reset @s health.fall_timer
-execute as @a unless score @s health.fall_timer matches 0.. run scoreboard players reset @s health.fall_timer_true
 
-
-execute as @a[scores={health.fall_timer=10  }] at @s run playsound 3008:fall_loop master @s[tag=!dead] ~ ~ ~ 1 1 1
-execute as @a unless score @s health.fall_timer matches 0.. run stopsound @s * 3008:fall_loop
-
-execute as @a if score @s health.fall_timer_true matches 100.. run attribute @s gravity modifier add 3008:long_fall 1 add_multiplied_total
-execute as @a unless score @s health.fall_timer_true matches 100.. run attribute @s gravity modifier remove 3008:long_fall
-
-execute as @a if score @s health.fall_timer_true matches 200.. run attribute @s gravity modifier add 3008:very_long_fall 1.1 add_multiplied_total
-execute as @a unless score @s health.fall_timer_true matches 200.. run attribute @s gravity modifier remove 3008:very_long_fall
-
-
-execute as @a unless score @s health.fall_timer matches 1.. if score @s health matches 21.. run scoreboard players set @s screen_effect 0
-
-execute as @a[scores={health.fall_timer=10}] if score @s health matches 1.. run scoreboard players set @s screen_effect 300
-execute as @a[scores={health.fall_timer=11}] if score @s health matches 1.. run scoreboard players set @s screen_effect 301
-execute as @a[scores={health.fall_timer=12}] if score @s health matches 1.. run scoreboard players set @s screen_effect 302
-execute as @a[scores={health.fall_timer=13}] if score @s health matches 1.. run scoreboard players set @s screen_effect 303
-execute as @a[scores={health.fall_timer=14}] if score @s health matches 1.. run scoreboard players set @s screen_effect 304
-execute as @a[scores={health.fall_timer=15}] if score @s health matches 1.. run scoreboard players set @s screen_effect 305
-execute as @a[scores={health.fall_timer=16}] if score @s health matches 1.. run scoreboard players set @s screen_effect 306
-execute as @a[scores={health.fall_timer=17}] if score @s health matches 1.. run scoreboard players set @s screen_effect 307
-execute as @a[scores={health.fall_timer=18}] if score @s health matches 1.. run scoreboard players set @s screen_effect 308
-execute as @a[scores={health.fall_timer=19}] if score @s health matches 1.. run scoreboard players set @s screen_effect 309
-
-execute as @a[scores={health.fall_timer=20}] if score @s health matches 1.. run scoreboard players set @s screen_effect 310
-execute as @a[scores={health.fall_timer=21}] if score @s health matches 1.. run scoreboard players set @s screen_effect 311
-execute as @a[scores={health.fall_timer=22}] if score @s health matches 1.. run scoreboard players set @s screen_effect 312
-execute as @a[scores={health.fall_timer=23}] if score @s health matches 1.. run scoreboard players set @s screen_effect 313
-
-execute as @a[scores={health.fall_timer=24}] if score @s health matches 1.. run scoreboard players set @s health.fall_timer 19
-
-
-execute as @a[scores={health.air=..0}] at @s run playsound entity.drowned.ambient_water master @s ~ ~ ~ 1 1 1
-execute as @a[scores={health.air=..0}] run scoreboard players remove @s health 3
-execute as @a[scores={health.air=..0}] if score @s health matches ..0 at @s run function 3008:life/kill {reason: drown}
 
 
 
@@ -511,6 +371,75 @@ execute as @a at @s as @e[tag=game, distance=..15, predicate=3008:chasing] if sc
 execute as @a at @s as @e[tag=game, distance=..15, predicate=3008:chasing] if score @s employee_sound matches 400..599 if score temp server matches 25 run scoreboard players reset @s employee_sound
 execute as @a at @s as @e[tag=game, distance=..15, predicate=3008:chasing] if score @s employee_sound matches 600.. run scoreboard players reset @s employee_sound
 
+
+
+
+
+
+
+
+
+
+
+execute if score blood server matches -1 at @a run worldborder warning distance 0
+execute unless score blood server matches 1 at @a unless score blood server matches -1 run worldborder warning distance 30000000
+execute if score blood server matches 1 at @a run worldborder warning distance 500000000
+execute if score blood server matches 1 as @a at @s run particle crimson_spore ~ ~5 ~ 20 40 20 1 40 force @s
+
+execute unless score zombie_state server matches 1 as @e[type=zombie, tag=game] at @s run function 3008:misc/convert_self {convert_to: zombified_piglin}
+execute if score zombie_state server matches 1 as @e[type=zombified_piglin, tag=game] at @s run function 3008:misc/convert_self {convert_to: zombie}
+
+
+
+execute unless score time.day server matches 1.. run scoreboard players set time.day server 1
+
+execute unless score time server matches 0.. run scoreboard players set time.day server 1
+execute unless score time server matches 0.. run scoreboard players set time server 8400
+execute if score playercount server matches 1.. run scoreboard players add time server 1
+execute if score time server matches 28800.. run scoreboard players add time.day server 1
+execute if score time server matches 28800.. run scoreboard players set time server 0
+
+scoreboard players operation time.weekday server = time.day server
+scoreboard players operation time.weekday server %= 7 consts
+#scoreboard players add time.weekday server 1
+
+scoreboard players operation time.m server = time server
+scoreboard players operation time.m server /= 20 consts
+scoreboard players operation time.m server %= 60 consts
+
+scoreboard players operation time.h server = time server
+scoreboard players operation time.h server /= 20 consts
+scoreboard players operation time.h server /= 60 consts
+
+scoreboard players operation time.t server = time server
+scoreboard players operation time.t server %= 20 consts
+
+
+execute unless score time.weekday server matches 6 unless score time.weekday server matches 0 if score time.h server matches 7..21 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches 0.. if score time.day server matches 12.. store result score temp server run function 3008:misc/generate_random {min: 1, max: 15}
+execute unless score time.weekday server matches 6 unless score time.weekday server matches 0 if score time.h server matches 7..21 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches 0.. unless score time.day server matches 12.. store result score temp server run function 3008:misc/generate_random {min: 2, max: 15}
+execute unless score time.weekday server matches 6 unless score time.weekday server matches 0 if score time.h server matches 7..21 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches 0.. if score temp server matches 1 run scoreboard players set daytime server 2
+execute unless score time.weekday server matches 6 unless score time.weekday server matches 0 if score time.h server matches 7..21 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches 0.. unless score temp server matches 1 run scoreboard players set daytime server 1
+
+execute unless score time.weekday server matches 6 unless score time.weekday server matches 0 unless score time.h server matches 7..21 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches ..0 if score time.day server matches 12.. store result score temp server run function 3008:misc/generate_random {min: 1, max: 30}
+execute unless score time.weekday server matches 6 unless score time.weekday server matches 0 unless score time.h server matches 7..21 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches ..0 unless score time.day server matches 12.. store result score temp server run function 3008:misc/generate_random {min: 5, max: 30}
+execute unless score time.weekday server matches 6 unless score time.weekday server matches 0 unless score time.h server matches 7..21 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches ..0 if score temp server matches 1 run scoreboard players set daytime server -3
+execute unless score time.weekday server matches 6 unless score time.weekday server matches 0 unless score time.h server matches 7..21 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches ..0 if score temp server matches 2..4 run scoreboard players set daytime server -2
+execute unless score time.weekday server matches 6 unless score time.weekday server matches 0 unless score time.h server matches 7..21 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches ..0 unless score temp server matches 1..4 run scoreboard players set daytime server -1
+
+
+
+execute if score time.weekday server matches 6 if score time.h server matches 7..17 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches 0.. store result score temp server run function 3008:misc/generate_random {min: 1, max: 15}
+execute if score time.weekday server matches 6 if score time.h server matches 7..17 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches 0.. if score temp server matches 1 run scoreboard players set daytime server 2
+execute if score time.weekday server matches 6 if score time.h server matches 7..17 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches 0.. unless score temp server matches 1 run scoreboard players set daytime server 1
+
+execute if score time.weekday server matches 6 unless score time.h server matches 7..17 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches ..0 unless score temp server matches 1..4 run scoreboard players set daytime server -1
+
+
+execute if score time.weekday server matches 0 if score time.h server matches 7..17 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches 0.. store result score temp server run function 3008:misc/generate_random {min: 1, max: 15}
+execute if score time.weekday server matches 0 if score time.h server matches 7..17 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches 0.. if score temp server matches 1 run scoreboard players set daytime server 2
+execute if score time.weekday server matches 0 if score time.h server matches 7..17 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches 0.. unless score temp server matches 1 run scoreboard players set daytime server 1
+
+execute if score time.weekday server matches 0 unless score time.h server matches 7..17 if score time.m server matches 0..59 if score time.t server matches 0..19 unless score daytime server matches ..0 unless score temp server matches 1..4 run scoreboard players set daytime server -1
 
 
 execute if score daytime server matches 2 unless score daytime_save server matches 2 as @a run effect clear @e[tag=game]
@@ -599,160 +528,36 @@ execute if score daytime server matches -3 run weather rain
 execute if score daytime server matches -3 as @a at @s run particle large_smoke ~ ~ ~ 40 40 40 .01 40 force @s
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+execute as @a at @s run function 3008:life/health/main
+
+execute as @a[tag=dead] at @s unless score @s health.death_anim matches 1.. run function 3008:life/kill
+execute as @a[tag=dead] at @s run function 3008:life/death_anims/for_all_dead
+scoreboard players set @a health.last_damage_reason 0
+
 execute as @a[tag=!dead] run function 3008:music/set_music
 execute as @a[scores={stat.leave=1..}] run function 3008:misc/join_routine
 execute as @a at @s run function 3008:music/play_music
-
-
-execute as @a[scores={stat.last_fall_distance.trigger=1..}] run scoreboard players operation @s stat.last_fall_distance = @s stat.last_fall_distance.trigger
-execute as @a[scores={stat.last_fall_distance.trigger=1..}] run scoreboard players reset @s stat.last_fall_distance.trigger
-
-execute as @a[scores={stat.last_fall_distance=1..}] run scoreboard players operation @s stat.last_fall_distance.blocks = @s stat.last_fall_distance
-execute as @a[scores={stat.last_fall_distance=1..}] run scoreboard players operation @s stat.last_fall_distance.blocks /= 100 consts
-
-execute as @a[scores={health.fall_distance=300..}] at @s run damage @s .01
-execute as @a[scores={health.fall_distance=1..}] run stopsound @s * 3008:fall_cont
-execute as @a[nbt={OnGround:1b}] run stopsound @s * 3008:fall_cont
-execute as @a[scores={health.fall_distance=300..}] run scoreboard players operation @s health.take_damage += @s health.fall_distance
-execute as @a[scores={health.fall_distance=300..699}] run scoreboard players operation @s health.take_damage /= 60 consts
-execute as @a[scores={health.fall_distance=700..1199}] run scoreboard players operation @s health.take_damage /= 30 consts
-execute as @a[scores={health.fall_distance=1200..}] run scoreboard players operation @s health.take_damage /= 20 consts
-execute as @a[scores={health.fall_distance=1500..99999}] if score @s health.take_damage >= @s health at @s run function 3008:life/kill {reason: fall}
-execute as @a[scores={health.fall_distance=100000..}] if score @s health.take_damage >= @s health at @s run function 3008:life/kill {reason: long_fall}
-
-execute as @a[scores={health.fall_distance=1..}] run tellraw @a[scores={logging=..1}] ["! log: falling distance is ", {"score": {"name": "@s", "objective": "health.fall_distance"}}]
-execute as @a[scores={health.fall_distance=1..}] run scoreboard players reset @s health.fall_distance
-
-execute as @a[scores={health.damage_taken=1..}] run scoreboard players operation @s health.damage_taken /= 2 consts
-execute as @a[scores={health.damage_taken=1..}] run scoreboard players operation @s health.take_damage += @s health.damage_taken
-execute as @a[scores={health.damage_taken=1..}] run scoreboard players reset @s health.damage_taken
-
-execute as @a[scores={health.take_damage=1..}] run scoreboard players operation @s health -= @s health.take_damage
-execute as @a[scores={health.take_damage=1..}] run scoreboard players reset @s health.take_damage
-
-
-execute as @a unless score @s health.max_health matches -2147483648..2147483647 run scoreboard players set @s health.max_health 100
-execute as @a unless score @s health matches -2147483648..2147483647 run scoreboard players operation @s health = @s health.max_health
-execute as @a run scoreboard players operation @s health.percentage = @s health
-execute as @a run scoreboard players operation @s health.percentage *= 1000 consts
-execute as @a run scoreboard players operation @s health.percentage /= @s health.max_health
-execute as @a run scoreboard players operation @s health.percentage /= 10 consts
-
-execute as @a run scoreboard players operation @s health.percentage_minecraftlike = @s health.percentage
-execute as @a run scoreboard players operation @s health.percentage_minecraftlike /= 5 consts
-
-execute as @a if score @s health.percentage matches ..-1 run scoreboard players set @s health.percentage 0
-execute as @a if score @s health.percentage matches 101.. run scoreboard players set @s health.percentage 100
-
-execute as @a[scores={health=..0}] run tag @s add dead
-execute as @a[scores={health=..0}] run scoreboard players set @s health 0
-execute as @a[scores={health=1..}] run tag @s remove dead
-
-execute as @a[tag=!dead] at @s run scoreboard players reset @s health.death_anim
-execute as @a[tag=!dead] at @s run scoreboard players reset @s health.death_anim.reason
-
-execute as @a[tag=dead] at @s unless score @s health.death_anim matches 1.. run function 3008:life/kill {reason: normal}
-execute as @a[tag=dead] at @s run function 3008:life/death_anims/for_all_dead
-
-# #execute as @a[tag=!dead] if score @s health.percentage matches 9999.. run title @s actionbar [{"text": "inf", "color": "blue"}, {"text": "/", "color":"gray"}, {"score": {"name": "@s", "objective": "health.max_health"}, "color": "gray"}]
-# execute as @a[tag=!dead] if score @s health > @s health.max_health run title @s actionbar [{"score": {"name": "@s", "objective": "health"}, "color": "aqua"}, {"text": "/", "color":"gray"}, {"score": {"name": "@s", "objective": "health.max_health"}, "color": "gray"}]
-# execute as @a[tag=!dead] if score @s health.percentage matches 76..100 unless score @s health > @s health.max_health run title @s actionbar [{"score": {"name": "@s", "objective": "health"}, "color": "green"}, {"text": "/", "color":"gray"}, {"score": {"name": "@s", "objective": "health.max_health"}, "color": "gray"}]
-# execute as @a[tag=!dead] if score @s health.percentage matches 51..75 run title @s actionbar [{"score": {"name": "@s", "objective": "health"}, "color": "yellow"}, {"text": "/", "color":"gray"}, {"score": {"name": "@s", "objective": "health.max_health"}, "color": "gray"}]
-# execute as @a[tag=!dead] if score @s health.percentage matches 26..50 run title @s actionbar [{"score": {"name": "@s", "objective": "health"}, "color": "gold"}, {"text": "/", "color":"gray"}, {"score": {"name": "@s", "objective": "health.max_health"}, "color": "gray"}]
-# execute as @a[tag=!dead] if score @s health.percentage matches 6..25 run title @s actionbar [{"score": {"name": "@s", "objective": "health"}, "color": "red"}, {"text": "/", "color":"gray"}, {"score": {"name": "@s", "objective": "health.max_health"}, "color": "gray"}]
-# execute as @a[tag=!dead] if score @s health.percentage matches 1..5 run title @s actionbar [{"score": {"name": "@s", "objective": "health"}, "color": "dark_red"}, {"text": "/", "color":"gray"}, {"score": {"name": "@s", "objective": "health.max_health"}, "color": "gray"}]
-# # , "  ", {"score": {"name": "@s", "objective": "health.percentage"}}, "%"
-
-
-execute as @a[scores={health.air=0..}] run scoreboard players operation @s health.air_percentage = @s health.air
-execute as @a[scores={health.air=0..}] run scoreboard players operation @s health.air_percentage *= 100 consts
-execute as @a[scores={health.air=0..}] run scoreboard players operation @s health.air_percentage /= 300 consts
-
-execute as @a[scores={health.air=0..299}, tag=!dead] run title @s actionbar [{"score": {"name": "@s", "objective": "health.air_percentage"}, "color": "aqua"}, "% 🫧"]
-
-
-
-execute as @a if score @s health > @s health.max_health run scoreboard players operation @s health = @s health.max_health
-
-
-
-execute as @a run scoreboard players operation @s health.percentage.anim_diff_add = @s health.percentage
-execute as @a run scoreboard players operation @s health.percentage.anim_diff_add -= @s health.percentage.anim_prev
-
-execute as @a run scoreboard players operation @s health.percentage.anim_diff += @s health.percentage.anim_diff_add
-
-
-execute as @a[tag=regenerating] unless score @s health.percentage.anim_prev = @s health.percentage run scoreboard players set @s health.regen_timer 1000
-execute as @a[tag=regenerating] unless score @s health.percentage.anim_prev = @s health.percentage run scoreboard players operation @s health.regen_timer /= @s health
-execute as @a[tag=regenerating] unless score @s health.percentage.anim_prev = @s health.percentage run scoreboard players operation @s health.regen_timer *= @s health.regen_timer
-execute as @a[tag=regenerating] unless score @s health.percentage.anim_prev = @s health.percentage run scoreboard players operation @s health.regen_timer /= 4 consts
-
-execute as @a run scoreboard players operation @s health.percentage.anim_prev = @s health.percentage
-
-execute as @a unless score @s health.percentage.anim_diff matches 1.. unless score @s health.percentage.anim_diff matches ..-1 run scoreboard players operation @s health.percentage.anim = @s health.percentage
-
-
-execute as @a if score @s health.percentage.anim_diff matches 1.. run function 3008:misc/change_anim {difference: health.percentage.anim_diff, result: health.percentage.anim}
-execute as @a if score @s health.percentage.anim_diff matches ..-1 run function 3008:misc/change_anim {difference: health.percentage.anim_diff, result: health.percentage.anim}
-
-
-
-execute as @a store result score @s stat.xp run xp query @s levels
-execute as @a unless score @s stat.xp = @s health.percentage.anim run function 3008:misc/show_health
-
-execute as @a[scores={health=1..20}] if score @s stat.sprinting matches 1.. run attribute @s movement_speed base set 0.077
-execute as @a[scores={health=1..20}] unless score @s stat.sprinting matches 1.. run attribute @s movement_speed base set 0.1
-execute as @a[scores={health=21..}] run attribute @s movement_speed base set 0.1
-scoreboard players reset @a stat.sprinting
-scoreboard players reset @a stat.crouching
-scoreboard players reset @a stat.walking
-scoreboard players reset @a stat.jump
-
-execute as @a if score @s health matches 21..30 run attribute @s movement_speed modifier add 3008:not_so_low_health -0.1 add_multiplied_total
-execute as @a if score @s health matches 21..30 run attribute @s movement_efficiency modifier add 3008:not_so_low_health -0.1 add_multiplied_total
-execute as @a if score @s health matches 21..30 at @s run particle dust{color:11277846, scale:.5} ~ ~1 ~ .2 .5 .2 0 1 force @a
-execute as @a if score @s health matches 21..30 run scoreboard players set @s screen_effect 5
-
-execute as @a if score @s health matches 1..20 run attribute @s jump_strength modifier add 3008:low_health -0.2 add_multiplied_total
-execute as @a if score @s health matches 1..20 run attribute @s movement_speed modifier add 3008:low_health -0.2 add_multiplied_total
-execute as @a if score @s health matches 1..20 run attribute @s movement_efficiency modifier add 3008:low_health -0.2 add_multiplied_total
-execute as @a if score @s health matches 1..20 at @s run particle dust{color:11277846, scale:1} ~ ~1 ~ .2 .5 .2 0 1 force @a
-execute as @a if score @s health matches 11..20 run scoreboard players set @s screen_effect 2
-
-execute as @a if score @s health matches 1..10 run attribute @s jump_strength modifier add 3008:very_low_health -0.2 add_multiplied_total
-execute as @a if score @s health matches 1..10 run attribute @s step_height modifier add 3008:very_low_health -0.3 add_multiplied_total
-execute as @a if score @s health matches 1..10 run effect give @s mining_fatigue infinite 1 true
-execute as @a if score @s health matches 1..10 run attribute @s movement_speed modifier add 3008:very_low_health -0.2 add_multiplied_total
-execute as @a if score @s health matches 1..10 run attribute @s movement_efficiency modifier add 3008:very_low_health -0.2 add_multiplied_total
-execute as @a if score @s health matches 1..10 at @s run particle dust{color:11277846, scale:1} ~ ~1 ~ .2 .5 .2 0 2 force @a
-execute as @a if score @s health matches 6..10 run scoreboard players set @s screen_effect 3
-
-execute as @a if score @s health matches 1..5 run attribute @s jump_strength modifier add 3008:extra_low_health -1 add_multiplied_total
-execute as @a if score @s health matches 1..5 run attribute @s movement_speed modifier add 3008:extra_low_health -0.3 add_multiplied_total
-execute as @a if score @s health matches 1..5 run attribute @s movement_efficiency modifier add 3008:extra_low_health -0.3 add_multiplied_total
-execute as @a if score @s health matches 1..5 at @s run particle dust{color:11277846, scale:1} ~ ~1 ~ .2 .5 .2 0 7 force @a
-execute as @a if score @s health matches 1..5 run scoreboard players set @s screen_effect 4
-
-
-execute as @a unless score @s health matches 21..30 run attribute @s jump_strength modifier remove 3008:not_so_low_health
-execute as @a unless score @s health matches 21..30 run attribute @s movement_speed modifier remove 3008:not_so_low_health
-execute as @a unless score @s health matches 21..30 run attribute @s movement_efficiency modifier remove 3008:not_so_low_health
-
-execute as @a unless score @s health matches 1..20 run attribute @s jump_strength modifier remove 3008:low_health
-execute as @a unless score @s health matches 1..20 run attribute @s movement_speed modifier remove 3008:low_health
-execute as @a unless score @s health matches 1..20 run attribute @s movement_efficiency modifier remove 3008:low_health
-
-execute as @a unless score @s health matches 1..10 run attribute @s jump_strength modifier remove 3008:very_low_health
-execute as @a unless score @s health matches 1..10 run attribute @s step_height modifier remove 3008:very_low_health
-execute as @a unless score @s health matches 1..10 run effect clear @s mining_fatigue
-execute as @a unless score @s health matches 1..10 run attribute @s movement_speed modifier remove 3008:very_low_health
-execute as @a unless score @s health matches 1..10 run attribute @s movement_efficiency modifier remove 3008:very_low_health
-
-execute as @a unless score @s health matches 1..5 run attribute @s jump_strength modifier remove 3008:extra_low_health
-execute as @a unless score @s health matches 1..5 run attribute @s movement_speed modifier remove 3008:extra_low_health
-execute as @a unless score @s health matches 1..5 run attribute @s movement_efficiency modifier remove 3008:extra_low_health
-
-
 execute as @a at @s run function 3008:misc/screens
 
 execute if score true_playercount_old server < true_playercount server run scoreboard players add @a player_list 0
@@ -761,3 +566,7 @@ execute store result score true_playercount_old server if entity @a
 scoreboard players reset temp server
 scoreboard players reset temp_gen_stage server
 scoreboard players reset temp_gen_substage server
+scoreboard players reset @a stat.sprinting
+scoreboard players reset @a stat.crouching
+scoreboard players reset @a stat.walking
+scoreboard players reset @a stat.jump
