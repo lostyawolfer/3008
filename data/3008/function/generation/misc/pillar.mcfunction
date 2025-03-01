@@ -39,7 +39,7 @@ $execute as @e[type=armor_stand, tag=generating] at @s if score temp10 server ma
 
 scoreboard players remove temp10 server 1
 
-$execute if score temp10 server matches 1.. run function 3008:generation/pillar {letter: $(letter), number: $(number), self_called: 1}
+$execute if score temp10 server matches 1.. run function 3008:generation/misc/pillar {letter: $(letter), number: $(number), self_called: 1}
 execute as @e[type=armor_stand, tag=generating] at @s unless score temp10 server matches 1.. run fill ~ 2010 ~ ~15 2010 ~15 light_gray_concrete
 execute as @e[type=armor_stand, tag=generating] at @s unless score temp10 server matches 1.. run fill ~ 2011 ~ ~15 2014 ~15 air
 
