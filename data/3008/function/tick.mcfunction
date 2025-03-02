@@ -270,7 +270,7 @@ function 3008:check_block/normal {block: magenta_wool, id: 113}
 
 
 
-execute as @a[gamemode=adventure] unless score @s holding.current_block matches 1.. run item replace entity @s container.1 with diamond_axe[custom_data={game:1}, can_break={"blocks": "#3008:breakable"}, unbreakable={show_in_tooltip:false}, tool={rules:[{blocks: "#minecraft:mineable/pickaxe",speed:20,correct_for_drops:true}, {blocks: "#minecraft:mineable/axe",speed:20,correct_for_drops:true}, {blocks: "chain", speed:40,correct_for_drops:true}, {blocks: "cobweb", speed:20,correct_for_drops:true}, {blocks: "#minecraft:mineable/hoe",speed:20,correct_for_drops:true}]}]
+execute as @a[gamemode=adventure] unless score @s holding.current_block matches 1.. run item replace entity @s container.1 with diamond_axe[custom_data={game:1}, can_break={"blocks": "#3008:breakable"}, unbreakable={show_in_tooltip:false}, tool={rules:[{blocks: "#minecraft:mineable/pickaxe",speed:20,correct_for_drops:true}, {blocks: "#minecraft:mineable/axe",speed:20,correct_for_drops:true}, {blocks: "chain", speed:40,correct_for_drops:true}, {blocks: "cobweb", speed:20,correct_for_drops:true}, {blocks: "#minecraft:mineable/hoe",speed:20,correct_for_drops:true}, {blocks: "#minecraft:wool",speed:20,correct_for_drops:true}]}]
 
 execute as @a[gamemode=adventure] unless score @s holding.current_block matches 1.. run clear @s *[custom_data={game:2}]
 execute as @a[gamemode=adventure] unless score @s holding.current_block matches 1.. unless score @s pickup_delay matches 1.. run item replace entity @a[gamemode=adventure] container.2 with air
