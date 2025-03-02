@@ -5,11 +5,16 @@ execute as @e[type=armor_stand, tag=generating] store result score temp!3 server
 
 scoreboard players operation temp!1 server /= 16 consts
 scoreboard players operation temp!1 server *= 16 consts
+execute store result score temp!0 server run function 3008:misc/generate_random {min: -4, max: 4}
+scoreboard players operation temp!1 server += temp!0 server
 
-scoreboard players operation temp!2 server = 0 consts
+execute store result score temp!2 server run function 3008:misc/generate_random {min: -15, max: 15}
 
 scoreboard players operation temp!3 server /= 16 consts
 scoreboard players operation temp!3 server *= 16 consts
+execute store result score temp!0 server run function 3008:misc/generate_random {min: -4, max: 4}
+scoreboard players operation temp!3 server += temp!0 server
+
 
 execute as @e[type=armor_stand, tag=generating] store result entity @s Pos[0] double 1 run scoreboard players get temp!1 server
 execute as @e[type=armor_stand, tag=generating] store result entity @s Pos[1] double 1 run scoreboard players get temp!2 server
@@ -36,9 +41,9 @@ $execute if score temp!0 server matches 09 as @e[type=armor_stand, tag=generatin
 $execute if score temp!0 server matches 10 as @e[type=armor_stand, tag=generating] at @s run place template 3008:plots/single/$(plot) ~15 ~-1 ~15 counterclockwise_90 left_right
 $execute if score temp!0 server matches 11 as @e[type=armor_stand, tag=generating] at @s run place template 3008:plots/single/$(plot) ~15 ~-1 ~ 180 left_right
 
-execute as @e[type=armor_stand, tag=genrating] run kill @s
+execute as @e[type=armor_stand, tag=generating] run kill @s
 
-$tellraw @a[scores={logging=1}] ["! log: placed template [3008:$(plot)] at [x:", {"score": {"name": "temp!1", "objective": "server"}}, " y:-1", " z:", {"score": {"name": "temp!2", "objective": "server"}}, "]"]
+$tellraw @a[scores={logging=1}] ["! log: placed template [3008:$(plot)] at [x:", {"score": {"name": "temp1", "objective": "server"}}, " y:-1", " z:", {"score": {"name": "temp2", "objective": "server"}}, "]"]
 
 
 scoreboard players reset temp!1 server

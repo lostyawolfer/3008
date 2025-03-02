@@ -249,6 +249,10 @@ function 3008:check_block/block_data {block: campfire, id: 90, state: 'lit: "fal
 function 3008:check_block/block_data {block: soul_campfire, id: 91, state: 'lit: "false"'}
 function 3008:check_block/normal {block: oak_fence_gate, id: 92}
 function 3008:check_block/normal {block: iron_bars, id: 93}
+function 3008:check_block/normal {block: mangrove_stairs, id: 94}
+function 3008:check_block/wall {block: black_banner, item: black_banner, id: 95}
+function 3008:check_block/wall {block: black_wall_banner, item: black_banner, id: 95}
+
 
 
 
