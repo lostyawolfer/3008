@@ -240,11 +240,19 @@ function 3008:check_block/wall {block: light_blue_banner, item: light_blue_banne
 function 3008:check_block/wall {block: light_blue_wall_banner, item: light_blue_banner, id: 82}
 function 3008:check_block/normal {block: white_bed, id: 83}
 function 3008:check_block/normal {block: oak_hanging_sign, id: 84}
-function 3008:check_block/normal {block: cobblestone_wall, id: 84}
+function 3008:check_block/normal {block: cobblestone_wall, id: 85}
+function 3008:check_block/normal {block: shroomlight, id: 86}
+function 3008:check_block/normal {block: polished_deepslate_wall, id: 87}
+function 3008:check_block/normal {block: warped_fence, id: 88}
+function 3008:check_block/normal {block: crimson_fence, id: 89}
+function 3008:check_block/block_data {block: campfire, id: 90, state: 'lit: "false"'}
+function 3008:check_block/block_data {block: soul_campfire, id: 91, state: 'lit: "false"'}
+function 3008:check_block/normal {block: oak_fence_gate, id: 92}
+function 3008:check_block/normal {block: iron_bars, id: 93}
 
 
 
-execute as @a[gamemode=adventure] unless score @s holding.current_block matches 1.. run item replace entity @s container.1 with diamond_axe[custom_data={game:1}, can_break={"blocks": "#3008:breakable"}, unbreakable={show_in_tooltip:false}, tool={rules:[{blocks: "#minecraft:mineable/pickaxe",speed:20,correct_for_drops:true}, {blocks: "#minecraft:mineable/axe",speed:20,correct_for_drops:true}, {blocks: "chain", speed:40,correct_for_drops:true}, {blocks: "cobweb", speed:20,correct_for_drops:true}]}]
+execute as @a[gamemode=adventure] unless score @s holding.current_block matches 1.. run item replace entity @s container.1 with diamond_axe[custom_data={game:1}, can_break={"blocks": "#3008:breakable"}, unbreakable={show_in_tooltip:false}, tool={rules:[{blocks: "#minecraft:mineable/pickaxe",speed:20,correct_for_drops:true}, {blocks: "#minecraft:mineable/axe",speed:20,correct_for_drops:true}, {blocks: "chain", speed:40,correct_for_drops:true}, {blocks: "cobweb", speed:20,correct_for_drops:true}, {blocks: "#minecraft:mineable/hoe",speed:20,correct_for_drops:true}]}]
 
 execute as @a[gamemode=adventure] unless score @s holding.current_block matches 1.. run clear @s *[custom_data={game:2}]
 execute as @a[gamemode=adventure] unless score @s holding.current_block matches 1.. unless score @s pickup_delay matches 1.. run item replace entity @a[gamemode=adventure] container.2 with air
@@ -526,9 +534,6 @@ execute if score daytime server matches -3 run effect give @e[tag=game] slowness
 execute if score daytime server matches -3 run effect give @e[tag=game] weakness 1 100 true
 execute if score daytime server matches -3 run weather rain
 execute if score daytime server matches -3 as @a at @s run particle large_smoke ~ ~ ~ 40 40 40 .01 40 force @s
-
-
-
 
 
 

@@ -93,6 +93,14 @@
         "light_blue_wall_banner",
         "white_bed",
         "oak_hanging_sign",
-        "cobblestone_wall"
+        "cobblestone_wall",
+        "shroomlight",
+        "polished_deepslate_wall",
+        "warped_fence",
+        "crimson_fence",
+        "campfire",
+        "soul_campfire",
+        "oak_fence_gate",
+        "iron_bars"
     ]
 }

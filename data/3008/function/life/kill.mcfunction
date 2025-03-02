@@ -68,6 +68,7 @@ scoreboard players set @s music.current_song 0
 stopsound @s
 
 
+execute if score @s health.last_damage_reason matches -1 run function 3008:life/death_anims/minecraft
 execute if score @s health.last_damage_reason matches 0 run function 3008:life/death_anims/normal
 execute if score @s health.last_damage_reason matches 1 run function 3008:life/death_anims/fall
 execute if score @s health.last_damage_reason matches 2 run function 3008:life/death_anims/long_fall

@@ -14,6 +14,8 @@ gamerule doMobSpawning false
 gamerule doInsomnia false
 gamerule doLimitedCrafting true
 gamerule playersSleepingPercentage 101
+gamerule doImmediateRespawn true
+gamerule showDeathMessages false
 #
 
 
@@ -100,6 +102,7 @@ scoreboard objectives add health dummy
     scoreboard objectives add health.regen_timer dummy
     scoreboard objectives add health.air air
         scoreboard objectives add health.air_percentage dummy
+    scoreboard objectives add health.mc_death_trigger minecraft.custom:minecraft.deaths
 scoreboard objectives setdisplay list health
 scoreboard objectives setdisplay below_name health
 scoreboard objectives modify health displayname {"text": "❤", "color": "#7EFC20"}

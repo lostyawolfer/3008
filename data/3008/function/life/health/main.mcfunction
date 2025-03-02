@@ -1,12 +1,3 @@
-execute if score @s health matches ..0 run tag @s add dead
-execute if score @s health matches ..0 run scoreboard players set @s health 0
-execute if score @s health matches 1.. run tag @s remove dead
-
-execute unless entity @s[tag=!dead] at @s run scoreboard players reset @s health.death_anim
-execute unless entity @s[tag=!dead] at @s run scoreboard players reset @s health.death_anim.reason
-
-
-
 function 3008:life/health/regen
 function 3008:life/health/air
 function 3008:life/health/hunger
@@ -110,3 +101,27 @@ execute if score @s health.percentage.anim_diff matches ..-1 run function 3008:l
 
 execute store result score @s stat.xp run xp query @s levels
 execute unless score @s stat.xp = @s health.percentage.anim run function 3008:life/health/display/show_health
+
+
+
+
+
+
+
+execute if score @s health.mc_death_trigger matches 1.. run scoreboard players set @s health 0
+execute if score @s health.mc_death_trigger matches 1.. run scoreboard players set @s health.take_damage 0
+execute if score @s health.mc_death_trigger matches 1.. run scoreboard players set @s health.damage_taken 0
+execute if score @s health.mc_death_trigger matches 1.. run scoreboard players set @s health.last_damage_reason -1
+execute if score @s health.mc_death_trigger matches 1.. run function 3008:life/kill
+execute if score @s health.mc_death_trigger matches 1.. run scoreboard players reset @s health.mc_death_trigger
+
+
+
+
+
+execute if score @s health matches ..0 run tag @s add dead
+execute if score @s health matches ..0 run scoreboard players set @s health 0
+execute if score @s health matches 1.. run tag @s remove dead
+
+execute unless entity @s[tag=dead] at @s run scoreboard players reset @s health.death_anim
+execute unless entity @s[tag=dead] at @s run scoreboard players reset @s health.death_anim.reason
