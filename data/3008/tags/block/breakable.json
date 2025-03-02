@@ -101,6 +101,9 @@
         "campfire",
         "soul_campfire",
         "oak_fence_gate",
-        "iron_bars"
+        "iron_bars",
+        "mangrove_stairs",
+        "black_banner",
+        "black_wall_banner"
     ]
 }
