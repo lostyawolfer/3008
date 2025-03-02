@@ -104,6 +104,21 @@
         "iron_bars",
         "mangrove_stairs",
         "black_banner",
-        "black_wall_banner"
+        "black_wall_banner",
+
+        "red_wool",
+        "blue_wool",
+        "cyan_wool",
+        "gray_wool",
+        "lime_wool",
+        "pink_wool",
+        "black_wool",
+        "brown_wool",
+        "green_wool",
+        "white_wool",
+        "orange_wool",
+        "purple_wool",
+        "yellow_wool",
+        "magenta_wool"
     ]
 }

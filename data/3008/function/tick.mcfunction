@@ -252,6 +252,20 @@ function 3008:check_block/normal {block: iron_bars, id: 93}
 function 3008:check_block/normal {block: mangrove_stairs, id: 94}
 function 3008:check_block/wall {block: black_banner, item: black_banner, id: 95}
 function 3008:check_block/wall {block: black_wall_banner, item: black_banner, id: 95}
+function 3008:check_block/normal {block: red_wool, id: 100}
+function 3008:check_block/normal {block: blue_wool, id: 101}
+function 3008:check_block/normal {block: cyan_wool, id: 102}
+function 3008:check_block/normal {block: gray_wool, id: 103}
+function 3008:check_block/normal {block: lime_wool, id: 104}
+function 3008:check_block/normal {block: pink_wool, id: 105}
+function 3008:check_block/normal {block: black_wool, id: 106}
+function 3008:check_block/normal {block: brown_wool, id: 107}
+function 3008:check_block/normal {block: green_wool, id: 108}
+function 3008:check_block/normal {block: white_wool, id: 109}
+function 3008:check_block/normal {block: orange_wool, id: 110}
+function 3008:check_block/normal {block: purple_wool, id: 111}
+function 3008:check_block/normal {block: yellow_wool, id: 112}
+function 3008:check_block/normal {block: magenta_wool, id: 113}
 
 
 
