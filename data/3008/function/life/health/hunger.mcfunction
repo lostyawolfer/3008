@@ -7,9 +7,9 @@ execute unless score @s hunger.real matches 0..20 run effect give @s hunger 1 0 
 execute unless score @s hunger matches ..50000 run scoreboard players set @s hunger 50000
 execute if score @s hunger matches ..-80 run scoreboard players remove @s health 10
 execute if score @s hunger matches ..-80 run scoreboard players set @s hunger 0
-execute unless score @s stat.sleep_time matches 1.. if score @s stat.walking matches 1.. run scoreboard players remove @s hunger 1
-execute unless score @s stat.sleep_time matches 1.. if score @s stat.sprinting matches 1.. run scoreboard players remove @s hunger 3
-execute unless score @s stat.sleep_time matches 1.. unless score @s stat.sprinting matches 1.. if score @s stat.jump matches 1.. run scoreboard players remove @s hunger 5
+execute unless score @s stat.sleep_time matches 1.. if score @s stat.walking matches 1.. run scoreboard players remove @s hunger 2
+execute unless score @s stat.sleep_time matches 1.. if score @s stat.sprinting matches 1.. run scoreboard players remove @s hunger 5
+execute unless score @s stat.sleep_time matches 1.. unless score @s stat.sprinting matches 1.. if score @s stat.jump matches 1.. run scoreboard players remove @s hunger 20
 execute unless score @s stat.sleep_time matches 1.. if score @s stat.sprinting matches 1.. if score @s stat.jump matches 1.. run scoreboard players remove @s hunger 20
 
 execute run scoreboard players operation @s hunger.minecraftlike = @s hunger

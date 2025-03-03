@@ -7,6 +7,9 @@ effect give @a instant_health 5 0 true
 execute as @a run attribute @s attack_speed modifier add 3008:base 2000000 add_value
 execute as @a run attribute @s attack_damage modifier add 3008:base -.75 add_multiplied_total
 execute as @e[type=zombie] run data merge entity @s {Fire: -20s}
+execute as @e[tag=game] unless score blood server matches 1 run effect give @s slowness infinite 1 true
+execute as @e[tag=game] if score blood server matches 1 run effect clear @s slowness
+execute as @e[tag=game] run attribute @s minecraft:follow_range base set 24
 
 team join player @a[gamemode=adventure, scores={stat.sleep_time=0..99}, team=!player]
 team join sleeping @a[gamemode=adventure, scores={stat.sleep_time=100..}, team=!sleeping]
@@ -87,8 +90,8 @@ execute unless score blood server matches 1 run scoreboard players set zombies_t
 execute if score blood server matches 1 run scoreboard players set zombies_total_max server 15
 scoreboard players operation zombies_total_max server *= playercount server
 
-execute if score zombies_total server < zombies_total_max server unless score zombies_true_total server matches 150.. as @a at @s unless score blood server matches 1 run function 3008:misc/spawn_zombie {distance: 25, height: 3}
-execute if score zombies_total server < zombies_total_max server unless score zombies_true_total server matches 150.. as @a at @s if score blood server matches 1 run function 3008:misc/spawn_zombie {distance: 10, height: 500}
+execute if score zombies_total server < zombies_total_max server unless score zombies_true_total server matches 150.. as @a at @s unless score blood server matches 1 run function 3008:misc/spawn_employee {distance: 25, height: 3}
+execute if score zombies_total server < zombies_total_max server unless score zombies_true_total server matches 150.. as @a at @s if score blood server matches 1 run function 3008:misc/spawn_employee {distance: 10, height: 500}
 
 execute if score zombies_true_total server matches 151.. run tp @e[tag=game, limit=5] 0 -200 0
 
@@ -142,9 +145,11 @@ execute as @a[scores={pickup_delay=1..}] run item replace entity @s container.2 
 execute as @a[scores={pickup_delay=1..}] run scoreboard players remove @s pickup_delay 1
 function 3008:item/inventory {item: apple, stack: 5}
 function 3008:item/inventory {item: totem_of_undying, stack: 1}
+# function 3008:item/inventory {item: bucket, stack: 1}
+# function 3008:item/inventory {item: water_bucket, stack: 1}
 function 3008:item/inventory {item: baked_potato, stack: 5}
 function 3008:item/inventory {item: potato, stack: 5}
-function 3008:item/inventory_consumable {item: beef, stack: 2, anim: bow, time: 4, particles: false}
+function 3008:item/inventory_consumable {item: beef, stack: 2, anim: crossbow, time: 4, particles: false}
 function 3008:item/inventory_consumable {item: rabbit_stew, stack: 2, anim: eat, time: 3, particles: true}
 
 
@@ -231,7 +236,7 @@ function 3008:check_block/wall {block: spruce_sign, item: spruce_sign, id: 74}
 function 3008:check_block/wall {block: spruce_wall_sign, item: spruce_sign, id: 74}
 function 3008:check_block/normal {block: birch_button, id: 75}
 function 3008:check_block/normal {block: stone_pressure_plate, id: 76}
-function 3008:check_block/normal {block: oak_pressure_plate, id: 77}
+function 3008:check_block/normal {block: spruce_pressure_plate, id: 77}
 function 3008:check_block/normal {block: observer, id: 78}
 function 3008:check_block/normal {block: waxed_copper_bulb, id: 79}
 function 3008:check_block/normal {block: oak_button, id: 80}
@@ -252,6 +257,10 @@ function 3008:check_block/normal {block: iron_bars, id: 93}
 function 3008:check_block/normal {block: mangrove_stairs, id: 94}
 function 3008:check_block/wall {block: black_banner, item: black_banner, id: 95}
 function 3008:check_block/wall {block: black_wall_banner, item: black_banner, id: 95}
+function 3008:check_block/normal {block: waxed_copper_door, id: 96}
+function 3008:check_block/normal {block: waxed_exposed_copper_door, id: 97}
+function 3008:check_block/normal {block: waxed_weathered_copper_door, id: 98}
+function 3008:check_block/normal {block: waxed_oxidized_copper_door, id: 99}
 function 3008:check_block/normal {block: red_wool, id: 100}
 function 3008:check_block/normal {block: blue_wool, id: 101}
 function 3008:check_block/normal {block: cyan_wool, id: 102}
@@ -266,6 +275,11 @@ function 3008:check_block/normal {block: orange_wool, id: 110}
 function 3008:check_block/normal {block: purple_wool, id: 111}
 function 3008:check_block/normal {block: yellow_wool, id: 112}
 function 3008:check_block/normal {block: magenta_wool, id: 113}
+function 3008:check_block/normal {block: cherry_trapdoor, id: 114}
+function 3008:check_block/normal {block: waxed_copper_trapdoor, id: 115}
+function 3008:check_block/normal {block: waxed_exposed_copper_trapdoor, id: 116}
+function 3008:check_block/normal {block: waxed_weathered_copper_trapdoor, id: 117}
+function 3008:check_block/normal {block: waxed_oxidized_copper_trapdoor, id: 118}
 
 
 
@@ -412,8 +426,8 @@ execute unless score blood server matches 1 at @a unless score blood server matc
 execute if score blood server matches 1 at @a run worldborder warning distance 500000000
 execute if score blood server matches 1 as @a at @s run particle crimson_spore ~ ~5 ~ 20 40 20 1 40 force @s
 
-execute unless score zombie_state server matches 1 as @e[type=zombie, tag=game] at @s run function 3008:misc/convert_self {convert_to: zombified_piglin}
-execute if score zombie_state server matches 1 as @e[type=zombified_piglin, tag=game] at @s run function 3008:misc/convert_self {convert_to: zombie}
+execute unless score zombie_state server matches 1 as @e[type=piglin_brute, tag=game] at @s run function 3008:misc/convert_self {convert_to: piglin}
+execute if score zombie_state server matches 1 as @e[type=piglin, tag=game] at @s run function 3008:misc/convert_self {convert_to: piglin_brute}
 
 
 
@@ -516,7 +530,7 @@ execute unless score daytime_save server = daytime server run scoreboard players
 
 execute if score daytime server matches 2 run scoreboard players set blood server 0
 execute if score daytime server matches 2 run scoreboard players set zombie_state server 1
-execute if score daytime server matches 2 run effect give @e[tag=game] slowness 1 1 true
+execute if score daytime server matches 2 run effect give @e[tag=game] slowness 1 3 true
 execute if score daytime server matches 2 as @a at @s run particle white_smoke ~ ~ ~ 40 40 40 .01 40 force @s
 execute if score daytime server matches 2 run weather rain
 
@@ -542,13 +556,12 @@ execute if score daytime server matches -1 run weather clear
 
 execute if score daytime server matches -2 run scoreboard players set blood server 1
 execute if score daytime server matches -2 run scoreboard players set zombie_state server 1
-execute if score daytime server matches -2 run effect give @e[tag=game] speed 1 1 true
 execute if score daytime server matches -2 run effect give @e[tag=game] strength 1 0 true
 execute if score daytime server matches -2 run weather clear
 
 execute if score daytime server matches -3 run scoreboard players set blood server 0
 execute if score daytime server matches -3 run scoreboard players set zombie_state server 1
-execute if score daytime server matches -3 run effect give @e[tag=game] slowness 1 1 true
+execute if score daytime server matches -3 run effect give @e[tag=game] slowness 1 3 true
 execute if score daytime server matches -3 run effect give @e[tag=game] weakness 1 100 true
 execute if score daytime server matches -3 run weather rain
 execute if score daytime server matches -3 as @a at @s run particle large_smoke ~ ~ ~ 40 40 40 .01 40 force @s

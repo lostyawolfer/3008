@@ -29,8 +29,8 @@ execute if score temp_gen_delay server matches 300.. run title @a actionbar [{"t
 execute if score temp_gen_delay server matches 1.. run title @a subtitle [{"text": "", "color": "#7db9c4"}, "letting your server stabilize before starting (", {"score": {"name": "temp_gen_delay", "objective": "server"}}, ")"]
 execute if score temp_gen_delay server matches 1.. run title @a title "plots (3/4)"
 execute if score temp_gen_delay server matches 10 run effect clear @s
-execute if score temp_gen_delay server matches 10 run stopsound @a
-execute if score temp_gen_delay server matches 10 as @a at @s run playsound 3008:loading master @s ~ ~ ~ 1 1 1
+# execute if score temp_gen_delay server matches 10 run stopsound @a
+# execute if score temp_gen_delay server matches 10 as @a at @s run playsound 3008:loading master @s ~ ~ ~ 1 1 1
 execute if score temp_gen_delay server matches 1.. run return run scoreboard players remove temp_gen_delay server 1
 execute if score temp_gen_delay2 server matches 1.. run title @a subtitle [{"text": "", "color": "#c5c3ad"}, "", {"score": {"name": "temp_gen_stage", "objective": "server"}}, "/", {"score": {"name": "temp_gen_stage_max", "objective": "server"}}, " // ", {"score": {"name": "temp-1", "objective": "server"}}, "x", {"score": {"name": "temp-10", "objective": "server"}}, " -- ", {"score": {"name": "temp_gen_stage_percent", "objective": "server"}, "color":"green"}, {"text": "%", "color": "green"}]
 execute if score temp_gen_delay2 server matches 1.. run return run scoreboard players remove temp_gen_delay2 server 1

@@ -84,7 +84,7 @@
         "spruce_wall_sign",
         "birch_button",
         "stone_pressure_plate",
-        "oak_pressure_plate",
+        "spruce_pressure_plate",
         "observer",
         "waxed_copper_bulb",
         "oak_button",
@@ -105,7 +105,10 @@
         "mangrove_stairs",
         "black_banner",
         "black_wall_banner",
-
+        "waxed_copper_door",
+        "waxed_exposed_copper_door",
+        "waxed_weathered_copper_door",
+        "waxed_oxidized_copper_door",
         "red_wool",
         "blue_wool",
         "cyan_wool",
@@ -119,6 +122,11 @@
         "orange_wool",
         "purple_wool",
         "yellow_wool",
-        "magenta_wool"
+        "magenta_wool",
+        "cherry_trapdoor",
+        "waxed_copper_trapdoor",
+        "waxed_exposed_copper_trapdoor",
+        "waxed_weathered_copper_trapdoor",
+        "waxed_oxidized_copper_trapdoor"
     ]
 }

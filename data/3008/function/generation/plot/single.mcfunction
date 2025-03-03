@@ -36,7 +36,7 @@ $execute if score temp!0 server matches 09 as @e[type=armor_stand, tag=generatin
 $execute if score temp!0 server matches 10 as @e[type=armor_stand, tag=generating] at @s run place template 3008:plots/single/$(plot) ~15 ~-1 ~15 counterclockwise_90 left_right
 $execute if score temp!0 server matches 11 as @e[type=armor_stand, tag=generating] at @s run place template 3008:plots/single/$(plot) ~15 ~-1 ~ 180 left_right
 
-execute as @e[type=armor_stand, tag=genrating] run kill @s
+execute as @e[type=armor_stand, tag=generating] run kill @s
 
 $tellraw @a[scores={logging=1}] ["! log: placed template [3008:$(plot)] at [x:", {"score": {"name": "temp!1", "objective": "server"}}, " y:-1", " z:", {"score": {"name": "temp!2", "objective": "server"}}, "]"]
 
