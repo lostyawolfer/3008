@@ -18,15 +18,15 @@ $execute if score $(self_called) consts matches 0 run execute as @e[type=armor_s
 $execute if score $(self_called) consts matches 0 run execute as @e[type=armor_stand, tag=generating] store result entity @s Pos[2] double 1 run scoreboard players get temp3 server
 
 $execute if score $(self_called) consts matches 0 run execute as @e[type=armor_stand, tag=generating] at @s run tp @s ~.5 ~ ~.5
-$execute if score $(self_called) consts matches 0 run execute as @e[type=armor_stand, tag=generating] at @s run place template 3008:pillar/bottom ~ ~-1 ~
+$execute if score $(self_called) consts matches 0 run execute as @e[type=armor_stand, tag=generating] at @s run place template 3008:pillar/bases/$(type) ~ ~-1 ~
 
 $execute if score $(self_called) consts matches 0 run scoreboard players set temp10 server 125
 
 
 
-$execute if score temp10 server matches 120..125 run tellraw @a[scores={logging=1}] ["! log: generating pillar with mark $(letter)$(number); stage ", {"score": {"name": "temp10", "objective": "server"}}]
-$execute if score temp10 server matches 120 run tellraw @a[scores={logging=1}] ["! log: generating pillar with mark $(letter)$(number); continuing until stage 3 with no logging"]
-$execute if score temp10 server matches 0..3 run tellraw @a[scores={logging=1}] ["! log: generating pillar with mark $(letter)$(number); stage ", {"score": {"name": "temp10", "objective": "server"}}]
+$execute if score temp10 server matches 122..125 run tellraw @a[scores={logging=1}] ["! log: generating pillar with mark $(letter)$(number) and type $(type); stage ", {"score": {"name": "temp10", "objective": "server"}}]
+$execute if score temp10 server matches 122 run tellraw @a[scores={logging=1}] ["! log: generating pillar with mark $(letter)$(number) and type $(type); continuing until stage 3 with no logging"]
+$execute if score temp10 server matches 0..3 run tellraw @a[scores={logging=1}] ["! log: generating pillar with mark $(letter)$(number) and type $(type); stage ", {"score": {"name": "temp10", "objective": "server"}}]
 
 execute as @e[type=armor_stand, tag=generating] at @s run tp @s ~ ~16 ~
 
@@ -39,7 +39,7 @@ $execute as @e[type=armor_stand, tag=generating] at @s if score temp10 server ma
 
 scoreboard players remove temp10 server 1
 
-$execute if score temp10 server matches 1.. run function 3008:generation/misc/pillar {letter: $(letter), number: $(number), self_called: 1}
+$execute if score temp10 server matches 1.. run function 3008:generation/misc/pillar {letter: $(letter), number: $(number), type: $(type), self_called: 1}
 execute as @e[type=armor_stand, tag=generating] at @s unless score temp10 server matches 1.. run fill ~ 2010 ~ ~15 2010 ~15 light_gray_concrete
 execute as @e[type=armor_stand, tag=generating] at @s unless score temp10 server matches 1.. run fill ~ 2011 ~ ~15 2014 ~15 air
 

@@ -244,7 +244,8 @@ function 3008:check_block/normal {block: wither_rose, id: 81}
 function 3008:check_block/wall {block: light_blue_banner, item: light_blue_banner, id: 82}
 function 3008:check_block/wall {block: light_blue_wall_banner, item: light_blue_banner, id: 82}
 function 3008:check_block/normal {block: white_bed, id: 83}
-function 3008:check_block/normal {block: oak_hanging_sign, id: 84}
+function 3008:check_block/wall {block: oak_hanging_sign, item: oak_hanging_sign, id: 84}
+function 3008:check_block/wall {block: oak_wall_hanging_sign, item: oak_hanging_sign, id: 84}
 function 3008:check_block/normal {block: cobblestone_wall, id: 85}
 function 3008:check_block/normal {block: shroomlight, id: 86}
 function 3008:check_block/normal {block: polished_deepslate_wall, id: 87}
@@ -280,6 +281,8 @@ function 3008:check_block/normal {block: waxed_copper_trapdoor, id: 115}
 function 3008:check_block/normal {block: waxed_exposed_copper_trapdoor, id: 116}
 function 3008:check_block/normal {block: waxed_weathered_copper_trapdoor, id: 117}
 function 3008:check_block/normal {block: waxed_oxidized_copper_trapdoor, id: 118}
+function 3008:check_block/wall {block: oak_sign, item: oak_sign, id: 119}
+function 3008:check_block/wall {block: oak_wall_sign, item: oak_sign, id: 119}
 
 
 

@@ -1,0 +1,10 @@
+$execute if score temp-2 server matches 1 if score temp-5 server matches 1 run function 3008:generation/misc/pillar_gen_letter_macro {number: 1, type: $(type), self_called: 0}
+$execute if score temp-2 server matches 1 if score temp-5 server matches 2 run function 3008:generation/misc/pillar_gen_letter_macro {number: 2, type: $(type), self_called: 0}
+$execute if score temp-2 server matches 1 if score temp-5 server matches 3 run function 3008:generation/misc/pillar_gen_letter_macro {number: 3, type: $(type), self_called: 0}
+$execute if score temp-2 server matches 1 if score temp-5 server matches 4 run function 3008:generation/misc/pillar_gen_letter_macro {number: 4, type: $(type), self_called: 0}
+$execute if score temp-2 server matches 1 if score temp-5 server matches 5 run function 3008:generation/misc/pillar_gen_letter_macro {number: 5, type: $(type), self_called: 0}
+$execute if score temp-2 server matches 1 if score temp-5 server matches 6 run function 3008:generation/misc/pillar_gen_letter_macro {number: 6, type: $(type), self_called: 0}
+$execute if score temp-2 server matches 1 if score temp-5 server matches 7 run function 3008:generation/misc/pillar_gen_letter_macro {number: 7, type: $(type), self_called: 0}
+$execute if score temp-2 server matches 1 if score temp-5 server matches 8 run function 3008:generation/misc/pillar_gen_letter_macro {number: 8, type: $(type), self_called: 0}
+$execute if score temp-2 server matches 1 if score temp-5 server matches 9 run function 3008:generation/misc/pillar_gen_letter_macro {number: 9, type: $(type), self_called: 0}
+$execute if score temp-2 server matches 1 unless score temp-5 server matches 1..9 run function 3008:generation/misc/pillar_gen_letter_macro {number: und, type: $(type), self_called: 0}

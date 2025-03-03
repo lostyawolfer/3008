@@ -93,6 +93,7 @@
         "light_blue_wall_banner",
         "white_bed",
         "oak_hanging_sign",
+        "oak_wall_hanging_sign",
         "cobblestone_wall",
         "shroomlight",
         "polished_deepslate_wall",
@@ -127,6 +128,8 @@
         "waxed_copper_trapdoor",
         "waxed_exposed_copper_trapdoor",
         "waxed_weathered_copper_trapdoor",
-        "waxed_oxidized_copper_trapdoor"
+        "waxed_oxidized_copper_trapdoor",
+        "oak_sign",
+        "oak_wall_sign"
     ]
 }
