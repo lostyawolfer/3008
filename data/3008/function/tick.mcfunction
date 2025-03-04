@@ -131,12 +131,12 @@ execute as @e[type=armor_stand, tag=spawn_item, tag=!set_up] at @s run tag @s ad
 execute as @e[type=armor_stand, tag=spawn_item] run data merge entity @s {Invulnerable: 1b, Invisible: 1b, NoGravity: 1b}
 
 #what items do
-function 3008:item/action {item: apple, type: add, health: 8, hunger: 4}
+function 3008:item/action {item: apple, type: add, health: 5, hunger: 3}
 function 3008:item/action {item: baked_potato, type: add, health: 2, hunger: 3}
 # RAW BEEF is for MEDKIT
-function 3008:item/action {item: beef, type: add, health: 50, hunger: 0}
+function 3008:item/action {item: beef, type: add, health: 30, hunger: 0}
 function 3008:item/action {item: potato, type: remove, health: 3, hunger: 1}
-function 3008:item/action {item: rabbit_stew, type: add, health: 7, hunger: 5}
+function 3008:item/action {item: rabbit_stew, type: add, health: 8, hunger: 5}
 
 execute if score time server matches 0 if score time.weekday server matches 2 run scoreboard players add GLOBAL server.items_spawned 1
 

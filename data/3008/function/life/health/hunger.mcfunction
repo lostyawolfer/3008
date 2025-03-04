@@ -8,9 +8,9 @@ execute unless score @s hunger matches ..50000 run scoreboard players set @s hun
 execute if score @s hunger matches ..-80 run scoreboard players remove @s health 10
 execute if score @s hunger matches ..-80 run scoreboard players set @s hunger 0
 execute unless score @s stat.sleep_time matches 1.. if score @s stat.walking matches 1.. run scoreboard players remove @s hunger 2
-execute unless score @s stat.sleep_time matches 1.. if score @s stat.sprinting matches 1.. run scoreboard players remove @s hunger 5
-execute unless score @s stat.sleep_time matches 1.. unless score @s stat.sprinting matches 1.. if score @s stat.jump matches 1.. run scoreboard players remove @s hunger 20
-execute unless score @s stat.sleep_time matches 1.. if score @s stat.sprinting matches 1.. if score @s stat.jump matches 1.. run scoreboard players remove @s hunger 20
+execute unless score @s stat.sleep_time matches 1.. if score @s stat.sprinting matches 1.. run scoreboard players remove @s hunger 4
+execute unless score @s stat.sleep_time matches 1.. unless score @s stat.sprinting matches 1.. if score @s stat.jump matches 1.. run scoreboard players remove @s hunger 47
+execute unless score @s stat.sleep_time matches 1.. if score @s stat.sprinting matches 1.. if score @s stat.jump matches 1.. run scoreboard players remove @s hunger 47
 
 execute run scoreboard players operation @s hunger.minecraftlike = @s hunger
 execute run scoreboard players operation @s hunger.minecraftlike *= 100 consts
