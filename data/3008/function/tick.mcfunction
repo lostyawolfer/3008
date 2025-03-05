@@ -42,10 +42,10 @@ execute store result score zombies_total server if entity @e[tag=game, tag=has_p
 execute store result score zombies_true_total server if entity @e[tag=game]
 
 
-execute if score sleepcount server >= playercount server if score playercount server matches 1.. run scoreboard players add time server 5
-execute as @a if score @s stat.sleep_time matches ..9 if score sleepcount server >= playercount server run scoreboard players remove @s[scores={health.percentage=..99}] health.regen_timer 2
-execute as @a if score @s stat.sleep_time matches 10.. unless score sleepcount server >= playercount server run scoreboard players remove @s[scores={health.percentage=..99}] health.regen_timer 2
-execute as @a if score @s stat.sleep_time matches 10.. if score sleepcount server >= playercount server run scoreboard players remove @s[scores={health.percentage=..99}] health.regen_timer 4
+execute if score sleepcount server >= playercount server if score playercount server matches 1.. run scoreboard players operation time server += time_speed_sleep settings
+execute as @a if score @s stat.sleep_time matches ..9 if score sleepcount server >= playercount server run scoreboard players remove @s[scores={health.percentage=..99}] health.regen_timer 3
+execute as @a if score @s stat.sleep_time matches 10.. unless score sleepcount server >= playercount server run scoreboard players remove @s[scores={health.percentage=..99}] health.regen_timer 3
+execute as @a if score @s stat.sleep_time matches 10.. if score sleepcount server >= playercount server run scoreboard players remove @s[scores={health.percentage=..99}] health.regen_timer 6
 
 
 
@@ -131,12 +131,12 @@ execute as @e[type=armor_stand, tag=spawn_item, tag=!set_up] at @s run tag @s ad
 execute as @e[type=armor_stand, tag=spawn_item] run data merge entity @s {Invulnerable: 1b, Invisible: 1b, NoGravity: 1b}
 
 #what items do
-function 3008:item/action {item: apple, type: add, health: 8, hunger: 4}
+function 3008:item/action {item: apple, type: add, health: 5, hunger: 3}
 function 3008:item/action {item: baked_potato, type: add, health: 2, hunger: 3}
 # RAW BEEF is for MEDKIT
-function 3008:item/action {item: beef, type: add, health: 50, hunger: 0}
+function 3008:item/action {item: beef, type: add, health: 30, hunger: 0}
 function 3008:item/action {item: potato, type: remove, health: 3, hunger: 1}
-function 3008:item/action {item: rabbit_stew, type: add, health: 7, hunger: 5}
+function 3008:item/action {item: rabbit_stew, type: add, health: 8, hunger: 5}
 
 execute if score time server matches 0 if score time.weekday server matches 2 run scoreboard players add GLOBAL server.items_spawned 1
 
@@ -434,13 +434,15 @@ execute if score zombie_state server matches 1 as @e[type=piglin, tag=game] at @
 
 
 
-execute unless score time.day server matches 1.. run scoreboard players set time.day server 1
+execute unless score time.day server matches -9999999.. run scoreboard players set time.day server 1
 
 execute unless score time server matches 0.. run scoreboard players set time.day server 1
-execute unless score time server matches 0.. run scoreboard players set time server 8400
-execute if score playercount server matches 1.. run scoreboard players add time server 1
+execute unless score time server matches -9999999.. run scoreboard players set time server 8400
+execute unless score time server matches 0.. run scoreboard players remove time.day server 1
+execute unless score time server matches 0.. run scoreboard players add time server 28800
+execute if score playercount server matches 1.. run scoreboard players operation time server += time_speed settings
 execute if score time server matches 28800.. run scoreboard players add time.day server 1
-execute if score time server matches 28800.. run scoreboard players set time server 0
+execute if score time server matches 28800.. run scoreboard players remove time server 28800
 
 scoreboard players operation time.weekday server = time.day server
 scoreboard players operation time.weekday server %= 7 consts

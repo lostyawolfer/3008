@@ -25,6 +25,7 @@ scoreboard objectives add consts dummy
     scoreboard players set 0 consts 0
     scoreboard players set 1 consts 1
     scoreboard players set 2 consts 2
+    scoreboard players set 4 consts 4
     scoreboard players set 5 consts 5
     scoreboard players set 6 consts 6
     scoreboard players set 7 consts 7
@@ -42,6 +43,10 @@ scoreboard objectives add consts dummy
     scoreboard players set 1000 consts 1000
     scoreboard players set 2500 consts 2500
     scoreboard players set 50000 consts 50000
+
+scoreboard objectives add settings dummy
+    scoreboard players set time_speed settings 1
+    scoreboard players set time_speed_sleep settings 5
 #
 
 
