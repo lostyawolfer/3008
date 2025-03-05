@@ -3,7 +3,7 @@
 
     # max is 184; score input is max 182; texture pixels is 182
 
-$execute if score @s $(score_bar) matches 1.. run xp add @s 2 points
+$execute if score @s $(score_bar) matches 1.. run xp add @s 3 points
 $execute if score @s $(score_bar) matches 2.. run xp add @s 1 points
 $execute if score @s $(score_bar) matches 3.. run xp add @s 1 points
 $execute if score @s $(score_bar) matches 4.. run xp add @s 1 points
@@ -203,7 +203,7 @@ $execute if score @s $(score_bar) matches 179.. run xp add @s 1 points
 
 $execute if score @s $(score_bar) matches 180.. run xp add @s 1 points
 $execute if score @s $(score_bar) matches 181.. run xp add @s 1 points
-$execute if score @s $(score_bar) matches 182.. run xp add @s 1 points
+#$execute if score @s $(score_bar) matches 182.. run xp add @s 1 points
 
 
 

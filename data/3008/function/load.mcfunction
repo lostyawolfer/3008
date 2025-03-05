@@ -37,6 +37,8 @@ scoreboard objectives add consts dummy
     scoreboard players set 30 consts 30
     scoreboard players set 60 consts 60
     scoreboard players set 100 consts 100
+    scoreboard players set 181 consts 181
+    scoreboard players set 182 consts 182
     scoreboard players set 184 consts 184
     scoreboard players set 150 consts 150
     scoreboard players set 200 consts 200

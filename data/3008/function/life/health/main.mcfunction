@@ -98,8 +98,8 @@ execute if score @s health.percentage.anim_diff matches ..-1 run function 3008:l
 
 
 scoreboard players operation @s health.percentage.anim.xp = @s health.percentage.anim
-scoreboard players operation @s health.percentage.anim.xp += 1 consts
-scoreboard players operation @s health.percentage.anim.xp *= 184 consts
+#scoreboard players operation @s health.percentage.anim.xp += 1 consts
+scoreboard players operation @s health.percentage.anim.xp *= 181 consts
 scoreboard players operation @s health.percentage.anim.xp /= 100 consts
 
 execute store result score @s stat.xp run xp query @s levels
