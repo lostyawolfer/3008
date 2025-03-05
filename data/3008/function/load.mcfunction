@@ -37,6 +37,7 @@ scoreboard objectives add consts dummy
     scoreboard players set 30 consts 30
     scoreboard players set 60 consts 60
     scoreboard players set 100 consts 100
+    scoreboard players set 184 consts 184
     scoreboard players set 150 consts 150
     scoreboard players set 200 consts 200
     scoreboard players set 300 consts 300
@@ -91,6 +92,7 @@ scoreboard objectives add health dummy
     scoreboard objectives add health.max_health dummy
     scoreboard objectives add health.percentage dummy
         scoreboard objectives add health.percentage.anim dummy
+        scoreboard objectives add health.percentage.anim.xp dummy
         scoreboard objectives add health.percentage.anim_diff dummy
         scoreboard objectives add health.percentage.anim_diff_add dummy
         scoreboard objectives add health.percentage.anim_prev dummy
@@ -117,6 +119,7 @@ scoreboard objectives add employee_sound dummy
 
 scoreboard objectives add hunger dummy
 scoreboard objectives add hunger.minecraftlike dummy
+scoreboard objectives add hunger.percentage dummy
 scoreboard objectives add hunger.real food
 scoreboard objectives add hunger.add dummy
 

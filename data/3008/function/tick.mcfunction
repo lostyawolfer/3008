@@ -436,7 +436,7 @@ execute if score zombie_state server matches 1 as @e[type=piglin, tag=game] at @
 
 execute unless score time.day server matches -9999999.. run scoreboard players set time.day server 1
 
-execute unless score time server matches 0.. run scoreboard players set time.day server 1
+execute unless score time server matches -9999999.. run scoreboard players set time.day server 1
 execute unless score time server matches -9999999.. run scoreboard players set time server 8400
 execute unless score time server matches 0.. run scoreboard players remove time.day server 1
 execute unless score time server matches 0.. run scoreboard players add time server 28800

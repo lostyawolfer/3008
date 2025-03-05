@@ -86,10 +86,7 @@ scoreboard players operation @s health.percentage.anim_diff_add -= @s health.per
 
 scoreboard players operation @s health.percentage.anim_diff += @s health.percentage.anim_diff_add
 
-execute as @a[tag=regenerating] unless score @s health.percentage.anim_prev = @s health.percentage run scoreboard players set @s health.regen_timer 1000
-execute as @a[tag=regenerating] unless score @s health.percentage.anim_prev = @s health.percentage run scoreboard players operation @s health.regen_timer /= @s health
-execute as @a[tag=regenerating] unless score @s health.percentage.anim_prev = @s health.percentage run scoreboard players operation @s health.regen_timer *= @s health.regen_timer
-execute as @a[tag=regenerating] unless score @s health.percentage.anim_prev = @s health.percentage run scoreboard players operation @s health.regen_timer /= 4 consts
+execute as @a[tag=regenerating] unless score @s health.percentage.anim_prev = @s health.percentage run tag @s remove regenerating
 
 scoreboard players operation @s health.percentage.anim_prev = @s health.percentage
 
@@ -99,8 +96,14 @@ execute if score @s health.percentage.anim_diff matches 1.. run function 3008:li
 execute if score @s health.percentage.anim_diff matches ..-1 run damage @s .001
 execute if score @s health.percentage.anim_diff matches ..-1 run function 3008:life/health/display/change_anim {difference: health.percentage.anim_diff, result: health.percentage.anim}
 
+
+scoreboard players operation @s health.percentage.anim.xp = @s health.percentage.anim
+scoreboard players operation @s health.percentage.anim.xp += 1 consts
+scoreboard players operation @s health.percentage.anim.xp *= 184 consts
+scoreboard players operation @s health.percentage.anim.xp /= 100 consts
+
 execute store result score @s stat.xp run xp query @s levels
-execute unless score @s stat.xp = @s health.percentage.anim run function 3008:life/health/display/show_health
+execute unless score @s stat.xp = @s health.percentage.anim run function 3008:life/health/display/show_score_in_xp {score_bar: health.percentage.anim.xp, score_level: health.percentage.anim}
 
 
 
