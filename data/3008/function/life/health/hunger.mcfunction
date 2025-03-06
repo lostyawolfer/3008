@@ -30,10 +30,13 @@ execute if score @s hunger.real >= @s hunger.minecraftlike run effect clear @s s
 execute if score @s hunger.real <= @s hunger.minecraftlike run effect clear @s hunger
 
 
-execute if score @s hunger.minecraftlike matches 20.. if entity @s[tag=regenerating] run scoreboard players remove @s health.regen_timer 4
-execute if score @s hunger.minecraftlike matches 20.. if entity @s[tag=regenerating] run scoreboard players remove @s hunger 4
+execute if score @s hunger.minecraftlike matches 20.. if entity @s[tag=regenerating] run scoreboard players remove @s health.regen_timer 5
+execute if score @s hunger.minecraftlike matches 20.. if entity @s[tag=regenerating] run scoreboard players remove @s hunger 5
 
-execute if score @s hunger.minecraftlike matches 18.. if entity @s[tag=regenerating] run scoreboard players remove @s health.regen_timer 2
+execute if score @s hunger.minecraftlike matches 19.. if entity @s[tag=regenerating] run scoreboard players remove @s health.regen_timer 4
+execute if score @s hunger.minecraftlike matches 19.. if entity @s[tag=regenerating] run scoreboard players remove @s hunger 4
+
+execute if score @s hunger.minecraftlike matches 18.. if entity @s[tag=regenerating] run scoreboard players remove @s health.regen_timer 3
 execute if score @s hunger.minecraftlike matches 18.. if entity @s[tag=regenerating] run scoreboard players remove @s hunger 3
 
 execute if score @s hunger.minecraftlike matches 15.. if entity @s[tag=regenerating] run scoreboard players remove @s health.regen_timer 2

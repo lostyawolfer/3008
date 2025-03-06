@@ -320,6 +320,7 @@ $execute if score @s $(score_level) matches 99.. run xp add @s 1 levels
 
 
 $execute if score @s $(score_level) matches 100.. run xp add @s 1 levels
+$execute unless score @s $(score_level) matches 101.. run return 0
 $execute if score @s $(score_level) matches 101.. run xp add @s 1 levels
 $execute if score @s $(score_level) matches 102.. run xp add @s 1 levels
 $execute if score @s $(score_level) matches 103.. run xp add @s 1 levels
@@ -431,6 +432,7 @@ $execute if score @s $(score_level) matches 199.. run xp add @s 1 levels
 
 
 $execute if score @s $(score_level) matches 200.. run xp add @s 1 levels
+$execute unless score @s $(score_level) matches 201.. run return 0
 $execute if score @s $(score_level) matches 201.. run xp add @s 1 levels
 $execute if score @s $(score_level) matches 202.. run xp add @s 1 levels
 $execute if score @s $(score_level) matches 203.. run xp add @s 1 levels
@@ -539,3 +541,790 @@ $execute if score @s $(score_level) matches 296.. run xp add @s 1 levels
 $execute if score @s $(score_level) matches 297.. run xp add @s 1 levels
 $execute if score @s $(score_level) matches 298.. run xp add @s 1 levels
 $execute if score @s $(score_level) matches 299.. run xp add @s 1 levels
+
+
+$execute if score @s $(score_level) matches 300.. run xp add @s 1 levels
+$execute unless score @s $(score_level) matches 301.. run return 0
+$execute if score @s $(score_level) matches 301.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 302.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 303.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 304.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 305.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 306.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 307.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 308.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 309.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 310.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 311.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 312.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 313.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 314.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 315.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 316.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 317.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 318.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 319.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 320.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 321.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 322.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 323.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 324.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 325.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 326.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 327.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 328.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 329.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 330.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 331.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 332.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 333.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 334.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 335.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 336.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 337.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 338.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 339.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 340.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 341.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 342.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 343.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 344.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 345.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 346.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 347.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 348.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 349.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 350.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 351.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 352.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 353.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 354.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 355.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 356.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 357.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 358.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 359.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 360.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 361.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 362.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 363.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 364.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 365.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 366.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 367.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 368.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 369.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 370.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 371.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 372.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 373.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 374.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 375.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 376.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 377.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 378.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 379.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 380.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 381.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 382.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 383.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 384.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 385.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 386.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 387.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 388.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 389.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 390.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 391.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 392.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 393.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 394.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 395.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 396.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 397.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 398.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 399.. run xp add @s 1 levels
+
+
+$execute if score @s $(score_level) matches 400.. run xp add @s 1 levels
+$execute unless score @s $(score_level) matches 401.. run return 0
+$execute if score @s $(score_level) matches 401.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 402.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 403.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 404.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 405.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 406.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 407.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 408.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 409.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 410.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 411.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 412.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 413.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 414.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 415.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 416.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 417.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 418.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 419.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 420.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 421.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 422.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 423.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 424.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 425.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 426.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 427.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 428.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 429.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 430.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 431.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 432.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 433.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 434.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 435.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 436.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 437.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 438.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 439.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 440.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 441.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 442.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 443.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 444.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 445.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 446.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 447.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 448.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 449.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 450.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 451.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 452.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 453.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 454.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 455.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 456.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 457.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 458.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 459.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 460.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 461.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 462.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 463.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 464.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 465.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 466.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 467.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 468.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 469.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 470.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 471.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 472.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 473.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 474.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 475.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 476.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 477.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 478.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 479.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 480.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 481.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 482.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 483.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 484.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 485.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 486.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 487.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 488.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 489.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 490.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 491.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 492.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 493.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 494.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 495.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 496.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 497.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 498.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 499.. run xp add @s 1 levels
+
+
+$execute if score @s $(score_level) matches 500.. run xp add @s 1 levels
+$execute unless score @s $(score_level) matches 501.. run return 0
+$execute if score @s $(score_level) matches 501.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 502.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 503.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 504.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 505.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 506.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 507.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 508.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 509.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 510.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 511.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 512.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 513.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 514.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 515.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 516.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 517.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 518.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 519.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 520.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 521.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 522.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 523.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 524.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 525.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 526.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 527.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 528.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 529.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 530.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 531.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 532.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 533.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 534.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 535.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 536.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 537.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 538.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 539.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 540.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 541.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 542.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 543.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 544.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 545.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 546.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 547.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 548.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 549.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 550.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 551.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 552.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 553.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 554.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 555.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 556.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 557.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 558.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 559.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 560.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 561.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 562.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 563.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 564.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 565.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 566.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 567.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 568.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 569.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 570.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 571.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 572.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 573.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 574.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 575.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 576.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 577.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 578.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 579.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 580.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 581.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 582.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 583.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 584.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 585.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 586.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 587.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 588.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 589.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 590.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 591.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 592.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 593.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 594.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 595.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 596.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 597.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 598.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 599.. run xp add @s 1 levels
+
+
+$execute if score @s $(score_level) matches 600.. run xp add @s 1 levels
+$execute unless score @s $(score_level) matches 601.. run return 0
+$execute if score @s $(score_level) matches 601.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 602.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 603.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 604.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 605.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 606.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 607.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 608.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 609.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 610.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 611.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 612.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 613.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 614.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 615.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 616.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 617.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 618.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 619.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 620.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 621.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 622.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 623.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 624.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 625.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 626.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 627.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 628.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 629.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 630.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 631.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 632.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 633.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 634.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 635.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 636.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 637.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 638.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 639.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 640.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 641.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 642.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 643.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 644.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 645.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 646.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 647.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 648.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 649.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 650.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 651.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 652.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 653.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 654.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 655.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 656.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 657.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 658.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 659.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 660.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 661.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 662.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 663.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 664.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 665.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 666.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 667.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 668.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 669.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 670.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 671.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 672.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 673.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 674.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 675.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 676.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 677.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 678.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 679.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 680.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 681.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 682.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 683.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 684.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 685.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 686.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 687.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 688.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 689.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 690.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 691.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 692.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 693.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 694.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 695.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 696.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 697.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 698.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 699.. run xp add @s 1 levels
+
+
+$execute if score @s $(score_level) matches 700.. run xp add @s 1 levels
+$execute unless score @s $(score_level) matches 701.. run return 0
+$execute if score @s $(score_level) matches 701.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 702.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 703.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 704.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 705.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 706.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 707.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 708.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 709.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 710.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 711.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 712.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 713.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 714.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 715.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 716.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 717.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 718.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 719.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 720.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 721.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 722.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 723.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 724.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 725.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 726.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 727.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 728.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 729.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 730.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 731.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 732.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 733.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 734.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 735.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 736.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 737.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 738.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 739.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 740.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 741.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 742.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 743.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 744.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 745.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 746.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 747.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 748.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 749.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 750.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 751.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 752.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 753.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 754.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 755.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 756.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 757.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 758.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 759.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 760.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 761.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 762.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 763.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 764.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 765.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 766.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 767.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 768.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 769.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 770.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 771.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 772.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 773.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 774.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 775.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 776.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 777.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 778.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 779.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 780.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 781.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 782.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 783.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 784.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 785.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 786.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 787.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 788.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 789.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 790.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 791.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 792.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 793.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 794.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 795.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 796.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 797.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 798.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 799.. run xp add @s 1 levels
+
+
+$execute if score @s $(score_level) matches 800.. run xp add @s 1 levels
+$execute unless score @s $(score_level) matches 801.. run return 0
+$execute if score @s $(score_level) matches 801.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 802.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 803.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 804.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 805.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 806.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 807.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 808.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 809.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 810.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 811.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 812.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 813.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 814.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 815.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 816.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 817.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 818.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 819.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 820.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 821.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 822.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 823.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 824.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 825.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 826.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 827.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 828.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 829.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 830.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 831.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 832.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 833.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 834.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 835.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 836.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 837.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 838.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 839.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 840.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 841.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 842.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 843.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 844.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 845.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 846.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 847.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 848.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 849.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 850.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 851.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 852.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 853.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 854.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 855.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 856.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 857.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 858.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 859.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 860.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 861.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 862.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 863.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 864.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 865.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 866.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 867.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 868.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 869.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 870.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 871.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 872.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 873.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 874.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 875.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 876.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 877.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 878.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 879.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 880.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 881.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 882.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 883.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 884.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 885.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 886.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 887.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 888.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 889.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 890.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 891.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 892.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 893.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 894.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 895.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 896.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 897.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 898.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 899.. run xp add @s 1 levels
+
+
+$execute if score @s $(score_level) matches 900.. run xp add @s 1 levels
+$execute unless score @s $(score_level) matches 901.. run return 0
+$execute if score @s $(score_level) matches 901.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 902.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 903.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 904.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 905.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 906.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 907.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 908.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 909.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 910.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 911.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 912.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 913.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 914.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 915.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 916.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 917.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 918.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 919.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 920.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 921.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 922.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 923.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 924.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 925.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 926.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 927.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 928.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 929.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 930.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 931.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 932.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 933.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 934.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 935.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 936.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 937.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 938.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 939.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 940.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 941.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 942.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 943.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 944.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 945.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 946.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 947.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 948.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 949.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 950.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 951.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 952.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 953.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 954.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 955.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 956.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 957.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 958.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 959.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 960.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 961.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 962.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 963.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 964.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 965.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 966.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 967.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 968.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 969.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 970.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 971.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 972.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 973.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 974.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 975.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 976.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 977.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 978.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 979.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 980.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 981.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 982.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 983.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 984.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 985.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 986.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 987.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 988.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 989.. run xp add @s 1 levels
+
+$execute if score @s $(score_level) matches 990.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 991.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 992.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 993.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 994.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 995.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 996.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 997.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 998.. run xp add @s 1 levels
+$execute if score @s $(score_level) matches 999.. run xp add @s 1 levels
+
+
+$execute if score @s $(score_level) matches 1000.. run xp set @s 0 levels

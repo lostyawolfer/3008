@@ -22,8 +22,8 @@ function 3008:music/set_song_stats_macro {id: 7, length: 1766, offset: 480}
 function 3008:music/set_song_stats_macro {id: 8, length: 6960, offset: 960}
 function 3008:music/set_song_stats_macro {id: 9, length: 5820, offset: 1200}
 function 3008:music/set_song_stats_macro {id: 10, length: 5760, offset: 1920}
-function 3008:music/set_song_stats_macro {id: 11, length: 1600, offset: 0}
-function 3008:music/set_song_stats_macro {id: 12, length: 1600, offset: 0}
+function 3008:music/set_song_stats_macro {id: 11, length: 1620, offset: 0}
+function 3008:music/set_song_stats_macro {id: 12, length: 1620, offset: 0}
 function 3008:music/set_song_stats_macro {id: 13, length: 6600, offset: 0}
 function 3008:music/set_song_stats_macro {id: 14, length: 4300, offset: 0}
 function 3008:music/set_song_stats_macro {id: 15, length: 7200, offset: 0}

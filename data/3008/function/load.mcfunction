@@ -92,12 +92,16 @@ scoreboard objectives add logging dummy
 
 scoreboard objectives add health dummy
     scoreboard objectives add health.max_health dummy
+        scoreboard objectives add health.anim dummy
+        scoreboard objectives add health.anim_diff dummy
+        scoreboard objectives add health.anim_diff_add dummy
+        scoreboard objectives add health.anim_prev dummy
     scoreboard objectives add health.percentage dummy
         scoreboard objectives add health.percentage.anim dummy
-        scoreboard objectives add health.percentage.anim.xp dummy
         scoreboard objectives add health.percentage.anim_diff dummy
         scoreboard objectives add health.percentage.anim_diff_add dummy
         scoreboard objectives add health.percentage.anim_prev dummy
+        scoreboard objectives add health.percentage.anim.xp dummy
     scoreboard objectives add health.percentage_minecraftlike dummy
         scoreboard objectives modify health.percentage_minecraftlike rendertype hearts
     scoreboard objectives add health.take_damage dummy
