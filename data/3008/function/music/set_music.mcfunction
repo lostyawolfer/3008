@@ -1,6 +1,6 @@
-execute if score @s health matches 1..30 if score daytime server matches 1.. run scoreboard players set @s music.current_song 11
-execute if score @s health matches 1..30 unless score daytime server matches 1.. run scoreboard players set @s music.current_song 12
-execute if score @s health matches 1..30 run return 1
+execute if score @s health.percentage matches 0..30 if score daytime server matches 1.. run scoreboard players set @s music.current_song 11
+execute if score @s health.percentage matches 0..30 unless score daytime server matches 1.. run scoreboard players set @s music.current_song 12
+execute if score @s health.percentage matches 0..30 run return 1
 
 
 execute unless predicate 3008:in_ikea run scoreboard players set @s music.current_song 15
