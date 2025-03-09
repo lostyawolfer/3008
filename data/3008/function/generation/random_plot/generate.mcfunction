@@ -43,18 +43,24 @@ execute store result score temp server run function 3008:misc/generate_random {m
 execute if score temp server matches 0 run function 3008:generation/plot/single {plot: undefined}
 
 
-execute if score temp server matches 001..100 run function 3008:generation/plot/single {plot: bedroom}
-execute if score temp server matches 101..200 run function 3008:generation/plot/single {plot: wardrobes}
+execute if score temp server matches 001..075 run function 3008:generation/plot/single {plot: bedroom}
+execute if score temp server matches 076..120 run function 3008:generation/plot/single {plot: living_room}
+execute if score temp server matches 121..124 run function 3008:generation/plot/single {plot: living_room_diamond_block}
+execute if score temp server matches 125..200 run function 3008:generation/plot/single {plot: wardrobes}
 execute if score temp server matches 201..300 run function 3008:generation/plot/single {plot: campfire}
 execute if score temp server matches 301..330 run function 3008:generation/plot/single {plot: cozy_bedroom}
 execute if score temp server matches 331..400 run function 3008:generation/plot/single {plot: billiards}
-execute if score temp server matches 401..440 run function 3008:generation/plot/single {plot: redstone}
+execute if score temp server matches 401..410 run function 3008:generation/plot/single {plot: redstone_wires}
+execute if score temp server matches 411..420 run function 3008:generation/plot/single {plot: redstone_doors}
+execute if score temp server matches 421..430 run function 3008:generation/plot/single {plot: redstone_daylight}
+execute if score temp server matches 431..440 run function 3008:generation/plot/single {plot: redstone_general}
 execute if score temp server matches 441..480 run function 3008:generation/plot/single {plot: small_industrial_shelves}
 execute if score temp server matches 481..510 run function 3008:generation/plot/single {plot: windows}
 execute if score temp server matches 511..530 run function 3008:generation/plot/single {plot: complementary_nether}
 execute if score temp server matches 531..540 run function 3008:generation/plot/single {plot: greenhouse}
 execute if score temp server matches 541..560 run function 3008:generation/plot/single {plot: outdoor}
-execute if score temp server matches 561..600 run function 3008:generation/plot/single {plot: corners}
+execute if score temp server matches 561..590 run function 3008:generation/plot/single {plot: corners_no_food}
+execute if score temp server matches 591..600 run function 3008:generation/plot/single {plot: corners}
 execute if score temp server matches 601..690 run function 3008:generation/plot/single {plot: four_sided_something}
 execute if score temp server matches 691..730 run function 3008:generation/plot/single {plot: glass_table}
 execute if score temp server matches 731..830 run function 3008:generation/plot/single {plot: lamps}
@@ -63,7 +69,7 @@ execute if score temp server matches 861..865 run function 3008:generation/rando
 execute if score temp server matches 866..870 run function 3008:generation/random_plot/check_long_z {plot: industrial_shelves}
 execute if score temp server matches 871..876 run function 3008:generation/random_plot/check_special/cafeteria
 execute if score temp server matches 877..930 run function 3008:generation/plot/single {plot: hospital}
-execute if score temp server matches 930..999 run function 3008:generation/plot/single {plot: tv_bedroom}
+execute if score temp server matches 931..999 run function 3008:generation/plot/single {plot: tv_bedroom}
 
 
 
