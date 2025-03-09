@@ -25,6 +25,7 @@ scoreboard objectives add consts dummy
     scoreboard players set 0 consts 0
     scoreboard players set 1 consts 1
     scoreboard players set 2 consts 2
+    scoreboard players set 4 consts 4
     scoreboard players set 5 consts 5
     scoreboard players set 6 consts 6
     scoreboard players set 7 consts 7
@@ -36,12 +37,19 @@ scoreboard objectives add consts dummy
     scoreboard players set 30 consts 30
     scoreboard players set 60 consts 60
     scoreboard players set 100 consts 100
+    scoreboard players set 181 consts 181
+    scoreboard players set 182 consts 182
+    scoreboard players set 184 consts 184
     scoreboard players set 150 consts 150
     scoreboard players set 200 consts 200
     scoreboard players set 300 consts 300
     scoreboard players set 1000 consts 1000
     scoreboard players set 2500 consts 2500
     scoreboard players set 50000 consts 50000
+
+scoreboard objectives add settings dummy
+    scoreboard players set time_speed settings 1
+    scoreboard players set time_speed_sleep settings 5
 #
 
 
@@ -84,11 +92,16 @@ scoreboard objectives add logging dummy
 
 scoreboard objectives add health dummy
     scoreboard objectives add health.max_health dummy
+        scoreboard objectives add health.anim dummy
+        scoreboard objectives add health.anim_diff dummy
+        scoreboard objectives add health.anim_diff_add dummy
+        scoreboard objectives add health.anim_prev dummy
     scoreboard objectives add health.percentage dummy
         scoreboard objectives add health.percentage.anim dummy
         scoreboard objectives add health.percentage.anim_diff dummy
         scoreboard objectives add health.percentage.anim_diff_add dummy
         scoreboard objectives add health.percentage.anim_prev dummy
+        scoreboard objectives add health.percentage.anim.xp dummy
     scoreboard objectives add health.percentage_minecraftlike dummy
         scoreboard objectives modify health.percentage_minecraftlike rendertype hearts
     scoreboard objectives add health.take_damage dummy
@@ -112,6 +125,7 @@ scoreboard objectives add employee_sound dummy
 
 scoreboard objectives add hunger dummy
 scoreboard objectives add hunger.minecraftlike dummy
+scoreboard objectives add hunger.percentage dummy
 scoreboard objectives add hunger.real food
 scoreboard objectives add hunger.add dummy
 

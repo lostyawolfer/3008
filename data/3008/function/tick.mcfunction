@@ -42,10 +42,10 @@ execute store result score zombies_total server if entity @e[tag=game, tag=has_p
 execute store result score zombies_true_total server if entity @e[tag=game]
 
 
-execute if score sleepcount server >= playercount server if score playercount server matches 1.. run scoreboard players add time server 5
-execute as @a if score @s stat.sleep_time matches ..9 if score sleepcount server >= playercount server run scoreboard players remove @s[scores={health.percentage=..99}] health.regen_timer 2
-execute as @a if score @s stat.sleep_time matches 10.. unless score sleepcount server >= playercount server run scoreboard players remove @s[scores={health.percentage=..99}] health.regen_timer 2
-execute as @a if score @s stat.sleep_time matches 10.. if score sleepcount server >= playercount server run scoreboard players remove @s[scores={health.percentage=..99}] health.regen_timer 4
+execute if score sleepcount server >= playercount server if score playercount server matches 1.. run scoreboard players operation time server += time_speed_sleep settings
+execute as @a if score @s stat.sleep_time matches ..9 if score sleepcount server >= playercount server run scoreboard players remove @s[scores={health.percentage=..99}] health.regen_timer 3
+execute as @a if score @s stat.sleep_time matches 10.. unless score sleepcount server >= playercount server run scoreboard players remove @s[scores={health.percentage=..99}] health.regen_timer 3
+execute as @a if score @s stat.sleep_time matches 10.. if score sleepcount server >= playercount server run scoreboard players remove @s[scores={health.percentage=..99}] health.regen_timer 6
 
 
 
@@ -434,13 +434,15 @@ execute if score zombie_state server matches 1 as @e[type=piglin, tag=game] at @
 
 
 
-execute unless score time.day server matches 1.. run scoreboard players set time.day server 1
+execute unless score time.day server matches -9999999.. run scoreboard players set time.day server 1
 
-execute unless score time server matches 0.. run scoreboard players set time.day server 1
-execute unless score time server matches 0.. run scoreboard players set time server 8400
-execute if score playercount server matches 1.. run scoreboard players add time server 1
+execute unless score time server matches -9999999.. run scoreboard players set time.day server 1
+execute unless score time server matches -9999999.. run scoreboard players set time server 8400
+execute unless score time server matches 0.. run scoreboard players remove time.day server 1
+execute unless score time server matches 0.. run scoreboard players add time server 28800
+execute if score playercount server matches 1.. run scoreboard players operation time server += time_speed settings
 execute if score time server matches 28800.. run scoreboard players add time.day server 1
-execute if score time server matches 28800.. run scoreboard players set time server 0
+execute if score time server matches 28800.. run scoreboard players remove time server 28800
 
 scoreboard players operation time.weekday server = time.day server
 scoreboard players operation time.weekday server %= 7 consts
