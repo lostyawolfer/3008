@@ -405,26 +405,27 @@ effect give @a[scores={stat.sleep_time=100..}] blindness 2 0 true
 
 
 
+execute as @e[tag=game, predicate= 3008:chasing] at @s if entity @a[distance=..24] if score daytime server matches ..0 run scoreboard players add @s employee_sound 1
 
-execute as @a at @s as @e[tag=game, distance=..15, predicate=3008:chasing] if score daytime server matches ..0 run scoreboard players add @s employee_sound 1
-execute as @a at @s as @e[tag=game, distance=..15, predicate=3008:chasing, limit=1, sort=random] if score daytime server matches ..0 run scoreboard players add @s employee_sound 1
 
-execute as @a at @s as @e[tag=game, distance=..15, predicate=!3008:chasing] run scoreboard players reset @s employee_sound
-execute as @a at @s as @e[tag=game, distance=15..30] run scoreboard players reset @s employee_sound
+execute as @e[tag=game, predicate= 3008:chasing] at @s if entity @a[distance=..24] if score @s employee_sound matches 1 store result score temp server run function 3008:misc/generate_random {min: 8, max: 12}
+execute as @e[tag=game, predicate= 3008:chasing] at @s if entity @a[distance=..24] if score @s employee_sound matches 1 if score temp server matches 08 run playsound 3008:employee_sound hostile @a ~ ~ ~ .4 0.90
+execute as @e[tag=game, predicate= 3008:chasing] at @s if entity @a[distance=..24] if score @s employee_sound matches 1 if score temp server matches 09 run playsound 3008:employee_sound hostile @a ~ ~ ~ .4 0.95
+execute as @e[tag=game, predicate= 3008:chasing] at @s if entity @a[distance=..24] if score @s employee_sound matches 1 if score temp server matches 10 run playsound 3008:employee_sound hostile @a ~ ~ ~ .4 1.00
+execute as @e[tag=game, predicate= 3008:chasing] at @s if entity @a[distance=..24] if score @s employee_sound matches 1 if score temp server matches 11 run playsound 3008:employee_sound hostile @a ~ ~ ~ .4 1.05
+execute as @e[tag=game, predicate= 3008:chasing] at @s if entity @a[distance=..24] if score @s employee_sound matches 1 if score temp server matches 12 run playsound 3008:employee_sound hostile @a ~ ~ ~ .4 1.10
+
+execute as @e[tag=game, predicate= 3008:chasing] at @s if entity @a[distance=..24] if score @s employee_sound matches 150..399 store result score temp server run function 3008:misc/generate_random {min: 1, max: 100}
+execute as @e[tag=game, predicate= 3008:chasing, limit=1, sort=random] at @s if entity @a[distance=..24] if score @s employee_sound matches 150..399 if score temp server matches 1 run scoreboard players reset @s employee_sound
+execute as @e[tag=game, predicate= 3008:chasing] at @s if entity @a[distance=..24] if score @s employee_sound matches 400..599 store result score temp server run function 3008:misc/generate_random {min: 1, max: 50}
+execute as @e[tag=game, predicate= 3008:chasing, limit=1, sort=random] at @s if entity @a[distance=..24] if score @s employee_sound matches 400..599 if score temp server matches 1 run scoreboard players reset @s employee_sound
+execute as @e[tag=game, predicate= 3008:chasing, limit=1, sort=random] at @s if entity @a[distance=..24] if score @s employee_sound matches 600.. run scoreboard players reset @s employee_sound
+
+
+execute as @e[tag=game, predicate= 3008:chasing, limit=1, sort=random] at @s if score daytime server matches ..0 run scoreboard players add @s employee_sound 1
+
+execute as @e[tag=game, predicate=!3008:chasing] at @s run scoreboard players reset @s employee_sound
 execute as @e[tag=game] unless score daytime server matches ..0 run scoreboard players reset @s employee_sound
-
-execute as @a at @s as @e[tag=game, distance=..15, predicate=3008:chasing] if score @s employee_sound matches 1 store result score temp server run function 3008:misc/generate_random {min: 8, max: 12}
-execute as @a at @s as @e[tag=game, distance=..15, predicate=3008:chasing] at @s if score @s employee_sound matches 1 if score temp server matches 8 run playsound 3008:employee_sound hostile @a ~ ~ ~ .4 .8
-execute as @a at @s as @e[tag=game, distance=..15, predicate=3008:chasing] at @s if score @s employee_sound matches 1 if score temp server matches 9 run playsound 3008:employee_sound hostile @a ~ ~ ~ .4 .9
-execute as @a at @s as @e[tag=game, distance=..15, predicate=3008:chasing] at @s if score @s employee_sound matches 1 if score temp server matches 10 run playsound 3008:employee_sound hostile @a ~ ~ ~ .4 1
-execute as @a at @s as @e[tag=game, distance=..15, predicate=3008:chasing] at @s if score @s employee_sound matches 1 if score temp server matches 11 run playsound 3008:employee_sound hostile @a ~ ~ ~ .4 1.1
-execute as @a at @s as @e[tag=game, distance=..15, predicate=3008:chasing] at @s if score @s employee_sound matches 1 if score temp server matches 12 run playsound 3008:employee_sound hostile @a ~ ~ ~ .4 1.2
-execute as @a at @s as @e[tag=game, distance=..15, predicate=3008:chasing] if score @s employee_sound matches 200..399 store result score temp server run function 3008:misc/generate_random {min: 1, max: 100}
-execute as @a at @s as @e[tag=game, distance=..15, predicate=3008:chasing] if score @s employee_sound matches 200..399 if score temp server matches 25 run scoreboard players reset @s employee_sound
-execute as @a at @s as @e[tag=game, distance=..15, predicate=3008:chasing] if score @s employee_sound matches 400..599 store result score temp server run function 3008:misc/generate_random {min: 1, max: 50}
-execute as @a at @s as @e[tag=game, distance=..15, predicate=3008:chasing] if score @s employee_sound matches 400..599 if score temp server matches 25 run scoreboard players reset @s employee_sound
-execute as @a at @s as @e[tag=game, distance=..15, predicate=3008:chasing] if score @s employee_sound matches 600.. run scoreboard players reset @s employee_sound
-
 
 
 
