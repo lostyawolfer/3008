@@ -7,7 +7,7 @@ effect give @a instant_health 5 0 true
 execute as @a run attribute @s attack_speed modifier add 3008:base 2000000 add_value
 execute as @a run attribute @s attack_damage modifier add 3008:base -.75 add_multiplied_total
 execute as @e[type=zombie] run data merge entity @s {Fire: -20s}
-execute as @e[tag=game] unless score blood server matches 1 run effect give @s slowness infinite 1 true
+execute as @e[tag=game] unless score blood server matches 1 run effect give @s slowness infinite 0 true
 execute as @e[tag=game] if score blood server matches 1 run effect clear @s slowness
 execute as @e[tag=game] run attribute @s minecraft:follow_range base set 24
 
@@ -36,8 +36,8 @@ execute if score natitemscount server matches 350.. run kill @e[type=item, tag=n
 
 execute as @a store result score @s stat.height run data get entity @s Pos[1]
 
-execute as @e[tag=game] at @s if entity @a[distance=5..40] run tag @s add has_players
-execute as @e[tag=game] at @s unless entity @a[distance=5..40] run tag @s remove has_players
+execute as @e[tag=game] at @s if entity @a[distance=5..50] run tag @s add has_players
+execute as @e[tag=game] at @s unless entity @a[distance=5..50] run tag @s remove has_players
 execute store result score zombies_total server if entity @e[tag=game, tag=has_players]
 execute store result score zombies_true_total server if entity @e[tag=game]
 
@@ -86,12 +86,12 @@ execute as @a if score @s stat.sleep_time matches 10.. if score sleepcount serve
 
 
 
-execute unless score blood server matches 1 run scoreboard players set zombies_total_max server 10
-execute if score blood server matches 1 run scoreboard players set zombies_total_max server 15
+execute unless score blood server matches 1 run scoreboard players set zombies_total_max server 2
+execute if score blood server matches 1 run scoreboard players set zombies_total_max server 8
 scoreboard players operation zombies_total_max server *= playercount server
 
-execute if score zombies_total server < zombies_total_max server unless score zombies_true_total server matches 150.. as @a at @s unless score blood server matches 1 run function 3008:misc/spawn_employee {distance: 25, height: 3}
-execute if score zombies_total server < zombies_total_max server unless score zombies_true_total server matches 150.. as @a at @s if score blood server matches 1 run function 3008:misc/spawn_employee {distance: 10, height: 500}
+execute if score zombies_total server < zombies_total_max server unless score zombies_true_total server matches 150.. as @a at @s unless score blood server matches 1 run function 3008:misc/spawn_employee {distance: 32, height: 10}
+execute if score zombies_total server < zombies_total_max server unless score zombies_true_total server matches 150.. as @a at @s if score blood server matches 1 run function 3008:misc/spawn_employee {distance: 16, height: 1000}
 
 execute if score zombies_true_total server matches 151.. run tp @e[tag=game, limit=5] 0 -200 0
 
@@ -101,13 +101,22 @@ execute as @e[tag=game] at @s unless entity @a[distance=..50] run tp @s ~ ~-200 
 
 
 
+execute as @a[scores={stat.kill_employee_day=1..}] run scoreboard players operation @s stat.kill_employee += @s stat.kill_employee_day
+execute as @a[scores={stat.kill_employee_day=1..}] run scoreboard players reset @s stat.kill_employee_day
 
+execute as @a[scores={stat.kill_employee=1..}] if score blood server matches 0 store result score temp server run function 3008:misc/generate_random {min: 1, max: 3}
+execute as @a[scores={stat.kill_employee=1..}] if score blood server matches 1 store result score temp server run function 3008:misc/generate_random {min: 1, max: 5}
+execute as @a[scores={stat.kill_employee=1..}] if score temp server matches 1.. run function 3008:-/give {item: rotten_flesh}
+execute as @a[scores={stat.kill_employee=1..}] if score temp server matches 2.. run function 3008:-/give {item: rotten_flesh}
+execute as @a[scores={stat.kill_employee=1..}] if score temp server matches 3.. run function 3008:-/give {item: rotten_flesh}
+execute as @a[scores={stat.kill_employee=1..}] if score temp server matches 4.. run function 3008:-/give {item: rotten_flesh}
+execute as @a[scores={stat.kill_employee=1..}] if score temp server matches 5.. run function 3008:-/give {item: rotten_flesh}
+execute as @a[scores={stat.kill_employee=1..}] if score temp server matches 6.. run function 3008:-/give {item: rotten_flesh}
+execute as @a[scores={stat.kill_employee=1..}] if score temp server matches 7.. run function 3008:-/give {item: rotten_flesh}
+execute as @a[scores={stat.kill_employee=1..}] if score temp server matches 8.. run function 3008:-/give {item: rotten_flesh}
+execute as @a[scores={stat.kill_employee=1..}] if score temp server matches 9.. run function 3008:-/give {item: rotten_flesh}
+execute as @a[scores={stat.kill_employee=1..}] run scoreboard players remove @s stat.kill_employee 1
 
-
-# execute as @a[scores={stat.kill_zombie=1..}] run scoreboard players add @s health 6
-# execute as @a[scores={stat.kill_zombie=1..}] run scoreboard players remove @s stat.kill_zombie 1
-# execute as @a[scores={stat.kill_zombie_day=1..}] run scoreboard players add @s health 11
-# execute as @a[scores={stat.kill_zombie_day=1..}] run scoreboard players remove @s stat.kill_zombie_day 1
 
 
 
@@ -132,11 +141,12 @@ execute as @e[type=armor_stand, tag=spawn_item] run data merge entity @s {Invuln
 
 #what items do
 function 3008:item/action {item: apple, type: add, health: 5, hunger: 3}
-function 3008:item/action {item: baked_potato, type: add, health: 2, hunger: 3}
+function 3008:item/action {item: baked_potato, type: add, health: 2, hunger: 2}
 # RAW BEEF is for MEDKIT
 function 3008:item/action {item: beef, type: add, health: 30, hunger: 0}
-function 3008:item/action {item: potato, type: remove, health: 3, hunger: 1}
+function 3008:item/action {item: potato, type: remove, health: 4, hunger: 2}
 function 3008:item/action {item: rabbit_stew, type: add, health: 8, hunger: 5}
+function 3008:item/action {item: rotten_flesh, type: remove, health: 1, hunger: 1}
 
 execute if score time server matches 0 if score time.weekday server matches 2 run scoreboard players add GLOBAL server.items_spawned 1
 
@@ -151,6 +161,7 @@ function 3008:item/inventory {item: baked_potato, stack: 5}
 function 3008:item/inventory {item: potato, stack: 5}
 function 3008:item/inventory_consumable {item: beef, stack: 2, anim: crossbow, time: 4, particles: false}
 function 3008:item/inventory_consumable {item: rabbit_stew, stack: 2, anim: eat, time: 3, particles: true}
+function 3008:item/inventory_consumable {item: rotten_flesh, stack: 9, anim: eat, time: 1, particles: true}
 
 
 function 3008:check_block/normal {block: oak_planks, id: 1}
@@ -488,14 +499,12 @@ execute if score time.weekday server matches 0 unless score time.h server matche
 
 
 execute if score daytime server matches 2 unless score daytime_save server matches 2 as @a run effect clear @e[tag=game]
-execute if score daytime server matches 2 unless score daytime_save server matches 2 as @a run effect clear @a resistance
 execute if score daytime server matches 2 unless score daytime_save server matches 2 as @a run stopsound @s master
 execute if score daytime server matches 2 unless score daytime_save server matches 2 run scoreboard players set @a music.current_song 8
 execute if score daytime server matches 2 unless score daytime_save server matches 2 run playsound 3008:daytime_switch.light_on master @a[tag=!dead] 0 0 0 1 1 1
 execute if score daytime server matches 2 unless score daytime_save server matches 2 run stopsound @a * 3008:employee_sound
 
 execute if score daytime server matches 1 unless score daytime_save server matches 1 as @a run effect clear @e[tag=game]
-execute if score daytime server matches 1 unless score daytime_save server matches 1 as @a run effect clear @a resistance
 execute if score daytime server matches 1 unless score daytime_save server matches 1 as @a run stopsound @s master
 execute if score daytime server matches 1 unless score daytime_save server matches 1 if score time.weekday server matches 0 run scoreboard players set @a[tag=!dead] music.current_song 7
 execute if score daytime server matches 1 unless score daytime_save server matches 1 if score time.weekday server matches 1 run scoreboard players set @a[tag=!dead] music.current_song 1
@@ -508,25 +517,21 @@ execute if score daytime server matches 1 unless score daytime_save server match
 execute if score daytime server matches 1 unless score daytime_save server matches 1 run stopsound @a * 3008:employee_sound
 
 execute if score daytime server matches 0 unless score daytime_save server matches 0 as @a run effect clear @e[tag=game]
-execute if score daytime server matches 0 unless score daytime_save server matches 0 as @a run effect clear @a resistance
 execute if score daytime server matches 0 unless score daytime_save server matches 0 as @a run stopsound @s master
 execute if score daytime server matches 0 unless score daytime_save server matches 0 run playsound 3008:daytime_loop_start.blackout master @a[tag=!dead] 0 0 0 1 1 1
 execute if score daytime server matches 0 unless score daytime_save server matches 0 run playsound 3008:daytime_switch.light_off master @a[tag=!dead] 0 0 0 1 1 1
 
 execute if score daytime server matches -1 unless score daytime_save server matches -1 as @a run effect clear @e[tag=game]
-execute if score daytime server matches -1 unless score daytime_save server matches -1 as @a run effect clear @a resistance
 execute if score daytime server matches -1 unless score daytime_save server matches -1 as @a run stopsound @s master
 execute if score daytime server matches -1 unless score daytime_save server matches -1 run scoreboard players set @a music.current_song 9
 execute if score daytime server matches -1 unless score daytime_save server matches -1 run playsound 3008:daytime_switch.light_off master @a[tag=!dead] 0 0 0 1 1 1
 
 execute if score daytime server matches -2 unless score daytime_save server matches -2 as @a run effect clear @e[tag=game]
-execute if score daytime server matches -2 unless score daytime_save server matches -2 as @a run effect clear @a resistance
 execute if score daytime server matches -2 unless score daytime_save server matches -2 as @a run stopsound @s master
 execute if score daytime server matches -2 unless score daytime_save server matches -2 run scoreboard players set @a music.current_song 10
 execute if score daytime server matches -2 unless score daytime_save server matches -2 run playsound 3008:daytime_switch.light_off_blood master @a[tag=!dead] 0 0 0 1 1 1
 
 execute if score daytime server matches -3 unless score daytime_save server matches -3 as @a run effect clear @e[tag=game]
-execute if score daytime server matches -3 unless score daytime_save server matches -3 as @a run effect clear @a resistance
 execute if score daytime server matches -3 unless score daytime_save server matches -3 as @a run stopsound @s master
 execute if score daytime server matches -3 unless score daytime_save server matches -3 run scoreboard players set @a music.current_song 8
 execute if score daytime server matches -3 unless score daytime_save server matches -3 run playsound 3008:daytime_switch.light_off master @a[tag=!dead] 0 0 0 1 1 1
@@ -541,7 +546,6 @@ execute if score daytime server matches 2 run weather rain
 
 execute if score daytime server matches 1 run scoreboard players set blood server 0
 execute if score daytime server matches 1 run scoreboard players set zombie_state server 0
-execute if score daytime server matches 1 run effect give @e[tag=game] strength 1 0 true
 execute if score daytime server matches 1 run weather clear
 
 execute if score daytime server matches 1.. run effect give @a night_vision infinite 0 true
@@ -556,7 +560,6 @@ execute if score daytime server matches 0 run effect give @a darkness 2 0 true
 
 execute if score daytime server matches -1 run scoreboard players set blood server 0
 execute if score daytime server matches -1 run scoreboard players set zombie_state server 1
-execute if score daytime server matches -1 run effect give @a resistance 1 0 true
 execute if score daytime server matches -1 run weather clear
 
 execute if score daytime server matches -2 run scoreboard players set blood server 1

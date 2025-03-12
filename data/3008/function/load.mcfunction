@@ -25,11 +25,13 @@ scoreboard objectives add consts dummy
     scoreboard players set 0 consts 0
     scoreboard players set 1 consts 1
     scoreboard players set 2 consts 2
+    scoreboard players set 3 consts 3
     scoreboard players set 4 consts 4
     scoreboard players set 5 consts 5
     scoreboard players set 6 consts 6
     scoreboard players set 7 consts 7
     scoreboard players set 8 consts 8
+    scoreboard players set 9 consts 9
     scoreboard players set 10 consts 10
     scoreboard players set 15 consts 15
     scoreboard players set 16 consts 16
@@ -135,8 +137,8 @@ scoreboard objectives add stat.xp dummy
 scoreboard objectives add stat.drop minecraft.custom:minecraft.drop
 scoreboard objectives add stat.playtime minecraft.custom:minecraft.play_time
 scoreboard objectives add stat.sleep_time dummy
-scoreboard objectives add stat.kill_zombie minecraft.killed:minecraft.zombie
-scoreboard objectives add stat.kill_zombie_day minecraft.killed:minecraft.zombified_piglin
+scoreboard objectives add stat.kill_employee minecraft.killed:minecraft.piglin_brute
+scoreboard objectives add stat.kill_employee_day minecraft.killed:minecraft.piglin
 scoreboard objectives add stat.leave minecraft.custom:minecraft.leave_game
 scoreboard objectives add stat.height dummy
 scoreboard objectives add stat.last_fall_distance.trigger minecraft.custom:minecraft.fall_one_cm

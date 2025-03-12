@@ -6,7 +6,7 @@ function 3008:life/health/falling
 
 
 # minecraft natural damage
-execute if score @s health.damage_taken matches 1.. run scoreboard players operation @s health.damage_taken /= 2 consts
+execute if score @s health.damage_taken matches 1.. run scoreboard players operation @s health.damage_taken /= 4 consts
 execute if score @s health.damage_taken matches 1.. run scoreboard players operation @s health.take_damage += @s health.damage_taken
 execute if score @s health.damage_taken matches 1.. run scoreboard players reset @s health.damage_taken
 
