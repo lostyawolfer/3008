@@ -16,7 +16,7 @@ team join sleeping @a[gamemode=adventure, scores={stat.sleep_time=100..}, team=!
 team join dead @a[gamemode=spectator, tag=dead, team=!dead]
 team join spectator @a[gamemode=spectator, tag=!dead, team=!spectator]
 team join creative @a[gamemode=creative, team=!creative]
-
+team join employee @e[tag=game]
 
 
 
@@ -294,6 +294,7 @@ function 3008:check_block/normal {block: waxed_weathered_copper_trapdoor, id: 11
 function 3008:check_block/normal {block: waxed_oxidized_copper_trapdoor, id: 118}
 function 3008:check_block/wall {block: oak_sign, item: oak_sign, id: 119}
 function 3008:check_block/wall {block: oak_wall_sign, item: oak_sign, id: 119}
+function 3008:check_block/normal {block: bell, id: 120}
 
 
 
@@ -430,6 +431,14 @@ execute as @e[tag=game] unless score daytime server matches ..0 run scoreboard p
 
 
 
+
+execute as @a at @s if score @s stat.bell_ring matches 1.. run effect give @e[type=!armor_stand, distance=..24] glowing 10 0 true
+execute as @a at @s if score @s stat.bell_ring matches 1.. as @e[tag=game, distance=..24] run data modify entity @s Brain.memories.minecraft:admiring_disabled.value set value 1b
+execute as @a at @s if score @s stat.bell_ring matches 1.. as @e[tag=game, distance=..24] run data modify entity @s Brain.memories.minecraft:admiring_disabled.ttl set value 200L
+execute as @a at @s if score @s stat.bell_ring matches 1.. as @e[tag=game, distance=..24] run data modify entity @s Brain.memories.minecraft:angry_at.value set from entity @a[distance=..24, limit=1, scores={stat.bell_ring=1..}] UUID
+execute as @a at @s if score @s stat.bell_ring matches 1.. as @e[tag=game, distance=..24] run data modify entity @s Brain.memories.minecraft:angry_at.ttl set value 200L
+execute as @a at @s if score @s stat.bell_ring matches 1.. run playsound block.bell.resonate block @a ~ ~ ~ 1 1
+execute as @a at @s if score @s stat.bell_ring matches 1.. run scoreboard players reset @s stat.bell_ring
 
 
 

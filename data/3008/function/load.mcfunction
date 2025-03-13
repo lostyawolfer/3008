@@ -148,6 +148,7 @@ scoreboard objectives add stat.sprinting minecraft.custom:minecraft.sprint_one_c
 scoreboard objectives add stat.crouching minecraft.custom:minecraft.crouch_one_cm
 scoreboard objectives add stat.walking minecraft.custom:minecraft.walk_one_cm
 scoreboard objectives add stat.jump minecraft.custom:minecraft.jump
+scoreboard objectives add stat.bell_ring minecraft.custom:minecraft.bell_ring
 
 scoreboard objectives add music.current_song dummy
 scoreboard objectives add music.previous_song dummy
@@ -208,3 +209,10 @@ team add spectator
     team modify spectator friendlyFire false
     team modify spectator nametagVisibility always
     team modify spectator seeFriendlyInvisibles true
+
+team add employee
+    team modify employee friendlyFire false
+    team modify employee color red
+
+team add item
+    team modify item color blue
