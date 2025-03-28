@@ -3,15 +3,15 @@
 	"sounds": [
       {
         "name": "3008:employee_sounds/1",
-        "attenuation_distance": 24
+        "attenuation_distance": 28
       },
       {
         "name": "3008:employee_sounds/2",
-        "attenuation_distance": 24
+        "attenuation_distance": 28
       },
       {
         "name": "3008:employee_sounds/3",
-        "attenuation_distance": 24
+        "attenuation_distance": 28
       }
     ]
   },
